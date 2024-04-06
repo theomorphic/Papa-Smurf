@@ -1,0 +1,199 @@
+
+$smurfRed: #e4312a;
+$smurfBlue: #2fb3df;
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	display: flex;
+	height: 100vh;
+	align-items: center;
+	justify-content: center;
+	background-color: $smurfBlue;
+	background-image: url("../img/Smurf-Village.jpg");
+	background-size: cover;
+	background-position: center;
+	font-size: 20px;
+}
+
+.container{
+	background-color: #f1f5f7;
+	padding: 10px;
+	border-radius: 5px;
+	border: 2px solid #000;
+	padding: 20px;
+
+}
+
+h1{
+	text-align: center;
+}
+
+.media{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background-color: #d3ebf3;
+	border-radius: 3px;
+
+	.bio{
+		display: inherit;
+		flex-direction: inherit;
+		justify-content: start;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.pfp{
+		margin: 10px;
+		border: 2px solid #000;
+		max-width: 150px;
+		border-radius: 3px;
+		animation: userShake 1s ease infinite;
+	}
+
+	.name{
+		margin: 10px;
+	}
+
+	.online{
+		color: $smurfRed;
+		font-weight: bold;
+		margin-left: 10px;
+	}
+}
+
+@keyframes userShake {
+	50%{
+		transform: rotate(1deg);
+	}
+}
+
+.chat-container{
+	height: 50vh;
+	overflow: auto;
+	border: 1px solid #c7c7c7;
+}
+
+
+a{
+	color: #fff;
+}
+
+a:hover{
+	font-size: 17px;
+}
+
+.input-group{
+	margin-top: 20px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+
+	.input{
+		border: 1px solid #c7c7c7;
+		width: 90%;
+		padding: 10px;
+		border-radius: 3px;
+	}
+
+	.btn{
+		color: #fff;
+		background-color: $smurfRed;
+		border: none;
+		font-size: 17px;
+		margin-left: 10px;
+
+	
+	}
+	
+	.btn:hover{
+		background-color: $smurfRed;
+		color: #fff;
+	
+	}
+}
+
+#sendBtn{
+	margin-left: 10px;
+
+}
+
+.botMessage{
+	margin: 10px;
+	padding: 5px;
+	float: left;
+	background-color: $smurfRed;
+	color: #fff;
+}
+
+.userMessage{
+	margin: 10px;
+	padding: 5px;
+	float: right;
+	background-color: $smurfBlue;
+	color: #fff;
+}
+
+
+@media(max-height:900px){
+	
+	.container{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 100vh;
+
+	}
+
+	#chatContainer{
+		display: flex;
+		flex-direction: column;
+		justify-content: start;	
+
+	}
+
+
+	
+}
+
+@media(max-width:990px){
+	.input-group{
+		.textbox{
+			width: 85%;
+		}
+	}
+}
+
+
+@media(max-width:768px){
+
+	.input-group{
+		.textbox{
+			width: 80%;
+		}
+	}
+}
+
+@media(max-width:432px){
+	.input-group{
+		.textbox{
+			width: 75%;
+		}
+	}
+}
+
+@media(max-width:354px){
+	.input-group{
+		.textbox{
+			width: 70%;
+		}
+	}
+}
