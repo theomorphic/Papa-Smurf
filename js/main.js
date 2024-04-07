@@ -26,7 +26,8 @@ import {pictureWords as pictureWords} from "./response.js";
 import {pictureMessages as pictureMessages} from "./response.js";
 import { pictures as pictures } from "./pictures.js";
 
-
+import { greetingsWords as greetingsWords } from "./response.js";
+import { greetingsMessages as greetingsMessages } from "./response.js";
 
 const dictionary = ["lox", "plox", "old"];
 
@@ -138,6 +139,7 @@ function processMessage(){
 	const oldMatch = beingOldForms.filter(element => message.includes(element));
 	const negativeMatch = negativeWords.filter(element => message.includes(element));
 	const pictureMatch = pictureWords.filter(element => message.includes(element));
+	const greetingsMatch = greetingsWords.filter(element => message.includes(element));
 
 	//функция делает первую букву ответа заглавной
 	function toUpperCaseAnswer(answer){
@@ -169,6 +171,13 @@ function processMessage(){
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 
 		}, 1500);
+	}
+	//приветствие
+	else if(greetingsMatch.length != 0){
+		setTimeout(() => {
+			let answer = greetingsMessages[randomArrayNumber(greetingsMessages)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1200);
 	}
 
 	//попросили показать фотки

@@ -306,3 +306,33 @@ const misha = [
 	"felix",
 ]
 export{misha}
+
+const greetingsWords = [
+	"hey",
+	"hello",
+	"hi",
+	"q",
+	"greetings",
+	"day",
+	"morning",
+	"evening",
+	"night",
+	"howdy",
+	"yo",
+	"hiya",
+]
+
+export{greetingsWords}
+
+const greetingsMessages = [
+	"hello, little Smurf!",
+	"oh hey there!",
+	"good time, dear Smurf!",
+	"greetings, my friend!",
+	"hello and welcome! How are you doing today?",
+	"oh hi-hi!",
+	"hello to you, new Smurf!",
+	"hey Smurf, how are you?",
+	"ahh! Hello here",
+]
+export{greetingsMessages}
