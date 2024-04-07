@@ -197,6 +197,9 @@ const negativeWords =[
 	"scumbag",
 	"wanker",
 	"prat",
+	"dwarf",
+	"midget",
+	"gnome"
 
 ]
 export{negativeWords}
