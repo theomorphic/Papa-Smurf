@@ -48,7 +48,6 @@ function chatbotSendMessage(messageText){
 	messageElement.classList.add("shadow-sm");
 
 	messageElement.innerHTML =
-	"<span>Papa Smurf: </span>"+
 	"<span style="+"margin-top: 10px; padding: 10px;"+">"+ messageText +"</span>"
 
 	messageElement.animate([{easing:"ease-in", opacity: 0.4},{opacity:1}], {duration: 700});
@@ -66,7 +65,6 @@ function sendMessage(messageText){
 	messageElement.classList.add("shadow-sm");
 
 	messageElement.innerHTML =
-	"<span>You: </span>"+
 	"<span style="+"margin-top: 10px; padding: 10px;"+">"+ messageText +"</span>"
 
 	messageElement.animate([{easing:"ease-in", opacity: 0.4},{opacity:1}], {duration: 700}); //анимация с появлением
