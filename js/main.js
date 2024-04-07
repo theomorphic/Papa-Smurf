@@ -7,10 +7,7 @@ const chatContainer = document.getElementById("chatContainer");
 //буферная зона для сообщения от пользователя
 const user = {message:"", counter:0};
 
-
 import {beginnigMessages as beginnigMessages} from "./response.js";
-
-import {firstDictionary as firstDictionary} from "./response.js";
 
 import {beingOldMessages as beingOldMessages} from "./response.js";
 import {beingOldForms as beingOldForms} from "./response.js";
@@ -29,7 +26,15 @@ import { pictures as pictures } from "./pictures.js";
 import { greetingsWords as greetingsWords } from "./response.js";
 import { greetingsMessages as greetingsMessages } from "./response.js";
 
-const dictionary = ["lox", "plox", "old"];
+import {agreeWords as agreeWords} from "./response.js";
+import {disagreeWords as disagreeWords} from "./response.js";
+
+import{quotes as quotes} from "./response.js";
+
+import { introductoryWords as introductoryWords } from "./response.js";
+import { binderPhrases as binderPhrases } from "./response.js";
+import { descriptionWords as descriptionWords } from "./response.js";
+
 
 //функция для выведения рандомного числа из длины массива
 function randomArrayNumber(arrayName){
@@ -133,13 +138,12 @@ function processMessage(){
 	let marks = /[,.!?';:\s]+/; // параметр, который эти знаки через regexp
 	let message = new String(user.message).toLowerCase().split(marks); //создает массив из сообщения
 	
-	const matchesDictionary = message.filter(element => firstDictionary.includes(element)); //находим общее между сообщением и словарем
-	//это словарь совпадений
-
 	const oldMatch = beingOldForms.filter(element => message.includes(element));
 	const negativeMatch = negativeWords.filter(element => message.includes(element));
 	const pictureMatch = pictureWords.filter(element => message.includes(element));
 	const greetingsMatch = greetingsWords.filter(element => message.includes(element));
+	const agreeMatch = agreeWords.filter(element => message.includes(element));
+	const disagreeMatch = disagreeWords.filter(element => message.includes(element));
 
 	//функция делает первую букву ответа заглавной
 	function toUpperCaseAnswer(answer){
@@ -156,7 +160,7 @@ function processMessage(){
 		}, 1000);
 		
 	}
-	//нзвали стариком
+	//назвали стариком
 	else if(oldMatch.length != 0){		
 		setTimeout(() => {
 			let answer = beingOldMessages[randomArrayNumber(beingOldMessages)];
@@ -191,11 +195,54 @@ function processMessage(){
 		}, 1800);
 	}
 
+	//согласие и несогласие
+	else if(disagreeMatch.length != 0 || agreeMatch.length != 0){
+		setTimeout(() => {
+
+			let answers =[
+				`${agreeWords[randomArrayNumber(agreeWords)]}`,
+				`${disagreeWords[randomArrayNumber(disagreeWords)]}`,
+				`${agreeWords[randomArrayNumber(agreeWords)]} ${conjunction[randomArrayNumber(conjunction)]} ${disagreeWords[randomArrayNumber(disagreeWords)]}`,
+				`${disagreeWords[randomArrayNumber(disagreeWords)]} ${conjunction[randomArrayNumber(conjunction)]} ${agreeWords[randomArrayNumber(agreeWords)]}`,
+				`${agreeWords[randomArrayNumber(agreeWords)]} ${conjunction[randomArrayNumber(conjunction)]} ${quotes[randomArrayNumber(quotes)]} `,
+				`${disagreeWords[randomArrayNumber(disagreeWords)]} ${conjunction[randomArrayNumber(conjunction)]} ${quotes[randomArrayNumber(quotes)]} `,
+				`${agreeWords[randomArrayNumber(agreeWords)]} ${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
+				`${disagreeWords[randomArrayNumber(disagreeWords)]} ${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
+				`${agreeWords[randomArrayNumber(agreeWords)]} ${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]} ${conjunction[randomArrayNumber(conjunction)]}`,
+				`${disagreeWords[randomArrayNumber(disagreeWords)]} ${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]} ${conjunction[randomArrayNumber(conjunction)]}`,
+			
+			]
+
+			let answer = answers[randomArrayNumber(answers)];;
+
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1400);
+	}
+
 	//когда вообще ничего не понял
 	else{
 		setTimeout(() => {
-			let answer = noIdeaMessages[randomArrayNumber(noIdeaMessages)];
+
+			const answers = [
+				`${introductoryWords[randomArrayNumber(introductoryWords)]} ${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]} ${conjunction[randomArrayNumber(conjunction)]}  ${quotes[randomArrayNumber(quotes)]}`,
+				`${introductoryWords[randomArrayNumber(introductoryWords)]} ${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]} ${conjunction[randomArrayNumber(conjunction)]}  ${quotes[randomArrayNumber(quotes)]}`,
+				`${introductoryWords[randomArrayNumber(introductoryWords)]} ${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]} ${conjunction[randomArrayNumber(conjunction)]}  ${quotes[randomArrayNumber(quotes)]}`,
+				`${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+				`${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+				`${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+				`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
+				`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
+				`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
+				`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
+				`${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+				`${descriptionWords[randomArrayNumber(descriptionWords)]} ${quotes[randomArrayNumber(quotes)]}`,
+				`${introductoryWords[randomArrayNumber(introductoryWords)]}`,
+				
+			]
+
+			let answer = answers[randomArrayNumber(answers)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))
+
 		}, 1500);
 	}
 
