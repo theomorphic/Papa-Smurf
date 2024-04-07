@@ -59,6 +59,17 @@ h1 {
   font-weight: bold;
   margin-left: 10px;
 }
+.media .hints {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2.6vw;
+  font-style: italic;
+}
+.media .hints span {
+  color: #e4312a;
+}
 
 @keyframes userShake {
   50% {
@@ -85,6 +96,7 @@ a:hover {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 }
 .input-group .input {
   border: 1px solid #c7c7c7;
@@ -130,6 +142,9 @@ a:hover {
     flex-direction: column;
     justify-content: center;
     height: 100vh;
+  }
+  .container .hints {
+    display: none;
   }
   #chatContainer {
     display: flex;

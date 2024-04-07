@@ -31,6 +31,7 @@ body{
 
 h1{
 	text-align: center;
+	
 }
 
 .media{
@@ -67,6 +68,19 @@ h1{
 		font-weight: bold;
 		margin-left: 10px;
 	}
+
+	.hints{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-right: 2.60vw;
+		font-style: italic;
+
+		span{
+			color: $smurfRed;
+		}
+	}
 }
 
 @keyframes userShake {
@@ -96,6 +110,7 @@ a:hover{
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+	gap: 10px;
 
 	.input{
 		border: 1px solid #c7c7c7;
@@ -150,7 +165,10 @@ a:hover{
 		flex-direction: column;
 		justify-content: center;
 		height: 100vh;
-
+		
+		.hints{
+			display: none;
+		}
 	}
 
 	#chatContainer{
@@ -159,6 +177,7 @@ a:hover{
 		justify-content: start;	
 
 	}
+
 
 
 	

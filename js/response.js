@@ -225,3 +225,84 @@ const conjunction = [
 	" ",
 ]
 export{conjunction}
+
+const pictureWords = [
+	"picture",
+	"pictures",
+	"photo",
+	"photos",
+	"foto",
+	"fotoes",
+	"fotos",
+	"photography",
+	"photographies",
+	"drawing",
+	"drawings",
+	"painting",
+	"paintings",
+	"image",
+	"images",
+	"photograph",
+	"album",
+	"albums",
+	"shoot",
+	"shoots",
+	"snapshot",
+	"snapshots",
+	"illustration",
+	"illustrations",
+	"frame",
+	"frames"
+]
+
+export{pictureWords};
+
+const pictureMessages = [
+	"Ohh, look at this photo!",
+	"Yeah, I want to show you this picture of mine",
+	"Look at this beautiful shot!",
+	"I love this photo so much",
+	"Have you seen this?",
+	"Good days, check this one",
+	"I didn't show you this?",
+	"It's so cute!",
+	"How I love our dearest Smurfs!",
+	"Lovely picture, isn't it?",
+	"I'm gonna show you this one",
+	"OK, look at this",
+	"You said a picture? Here you go",
+	"No problem, look at this",
+	"The photo quality may be old, but I love it",
+	"This foto has a long history",
+	"Here's my best picture of last year",
+	"It was hard to capture but we got it!"
+]
+export{pictureMessages}
+
+const alex = [
+	"alex",
+	"lexa",
+	"леха",
+	"леша",
+	"алешка",
+	"алёшка",
+	"origin",
+	"lilkitchen",
+	"parfe",
+	"алексей",
+]
+
+export{alex}
+
+const misha = [
+	"misha",
+	"mike",
+	"michael",
+	"theomorphic",
+	"soters",
+	"maxwell",
+	"миша",
+	"felixmk",
+	"felix",
+]
+export{misha}

@@ -15,12 +15,17 @@ import {firstDictionary as firstDictionary} from "./response.js";
 import {beingOldMessages as beingOldMessages} from "./response.js";
 import {beingOldForms as beingOldForms} from "./response.js";
 
-import { negativeMessages as negativeMessages } from "./response.js";
-import { negativeWords as negativeWords } from "./response.js";
+import {negativeMessages as negativeMessages} from "./response.js";
+import {negativeWords as negativeWords} from "./response.js";
 
-import { conjunction as conjunction } from "./response.js";
+import {conjunction as conjunction} from "./response.js";
 
-import { noIdeaMessages as noIdeaMessages } from "./response.js";
+import {noIdeaMessages as noIdeaMessages} from "./response.js";
+
+import {pictureWords as pictureWords} from "./response.js";
+import {pictureMessages as pictureMessages} from "./response.js";
+import { pictures as pictures } from "./pictures.js";
+
 
 
 const dictionary = ["lox", "plox", "old"];
@@ -55,6 +60,21 @@ function chatbotSendMessage(messageText){
 	//скроллим вниз по сообщениям
 	chatContainer.scrollTop = chatContainer.scrollHeight;
 }
+
+//отправляет картинки в чат
+function chatbotSendPictures(){
+	const messageElement = document.createElement("div");
+
+	messageElement.innerHTML =
+	// "<img src='./img/Smurf-Village.jpg' style='width:50vw;height:auto'>"
+	pictures[randomArrayNumber(pictures)];
+
+	messageElement.animate([{easing:"ease-in", opacity: 0.4},{opacity:1}], {duration: 700});
+	chatContainer.appendChild(messageElement);
+	//скроллим вниз по сообщениям
+	chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
 
 //добавляет в HTML уже готовое сообщение от пользователя
 function sendMessage(messageText){
@@ -117,6 +137,7 @@ function processMessage(){
 
 	const oldMatch = beingOldForms.filter(element => message.includes(element));
 	const negativeMatch = negativeWords.filter(element => message.includes(element));
+	const pictureMatch = pictureWords.filter(element => message.includes(element));
 
 	//функция делает первую букву ответа заглавной
 	function toUpperCaseAnswer(answer){
@@ -124,7 +145,7 @@ function processMessage(){
 	}
 	
 
-	//назвали матом стариком
+	//оскорбили и назвали стариком
 	if(oldMatch.length != 0 && negativeMatch.length != 0){
 		setTimeout(() => {
 			let answer = `${beingOldMessages[randomArrayNumber(beingOldMessages)]} ${conjunction[randomArrayNumber(conjunction)]} ${negativeMessages[randomArrayNumber(negativeMessages)]} `;
@@ -141,13 +162,24 @@ function processMessage(){
 
 		}, 1000);
 	}
-	//негитив
+	//негатив
 	else if(negativeMatch.length != 0){
 		setTimeout(() => {
 			let answer = negativeMessages[randomArrayNumber(negativeMessages)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 
 		}, 1500);
+	}
+
+	//попросили показать фотки
+	else if(pictureMatch.length != 0){
+		setTimeout(() => {
+			chatbotSendPictures()
+		}, 1400);
+		setTimeout(() => {
+			let answer = pictureMessages[randomArrayNumber(pictureMessages)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1800);
 	}
 
 	//когда вообще ничего не понял
