@@ -216,6 +216,7 @@ function processMessage(){
 				`Very ${descriptionWords[randomArrayNumber(descriptionWords)]}, you ${foodNames[randomArrayNumber(foodNames)]}`,
 				`Oh so ${descriptionWords[randomArrayNumber(descriptionWords)]}, ${negativeMessages[randomArrayNumber(negativeMessages)]}`,
 				`It's rude, you are ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
+				`You didn't offend me by using words like that, but remember ${quotes[randomArrayNumber(quotes)]}`,
 
 			]
 
