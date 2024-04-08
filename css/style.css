@@ -146,6 +146,9 @@ a:hover {
   .container .hints {
     display: none;
   }
+  .container .btn {
+    display: none;
+  }
   #chatContainer {
     display: flex;
     flex-direction: column;

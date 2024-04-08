@@ -1,39 +1,65 @@
 
-
+// Управление HTML интерфейсом
 const sendBtn = document.getElementById("sendBtn");
 const input = document.getElementById("input");
 const chatContainer = document.getElementById("chatContainer");
 
-//буферная зона для сообщения от пользователя
 const user = {message:"", counter:0};
+//буферная зона для сообщения от пользователя
 
+
+// Готовые короткие предложения и фразы
 import {beginnigMessages as beginnigMessages} from "./response.js";
-
-import {beingOldMessages as beingOldMessages} from "./response.js";
-import {beingOldForms as beingOldForms} from "./response.js";
-
-import {negativeMessages as negativeMessages} from "./response.js";
-import {negativeWords as negativeWords} from "./response.js";
-
-import {conjunction as conjunction} from "./response.js";
-
-import {noIdeaMessages as noIdeaMessages} from "./response.js";
-
-import {pictureWords as pictureWords} from "./response.js";
-import {pictureMessages as pictureMessages} from "./response.js";
-import { pictures as pictures } from "./pictures.js";
-
+//короткие вступительные фразы и small talk
 import { greetingsWords as greetingsWords } from "./response.js";
 import { greetingsMessages as greetingsMessages } from "./response.js";
+//короткие приветствия и пожелания
+import {negativeMessages as negativeMessages} from "./response.js";
+import {negativeWords as negativeWords} from "./response.js";
+//реакции на бранные слова и оскорбления
+import {noIdeaMessages as noIdeaMessages} from "./response.js";
+//короткие реакции на полное непонимание темы
+import { questions as generalQuestions } from "./response.js";
+import { answers as generalAnswers } from "./response.js";
+//короткие ответы на вопросы
 
-import {agreeWords as agreeWords} from "./response.js";
-import {disagreeWords as disagreeWords} from "./response.js";
 
+// Готовые длинные предложения и фразы
+import {beingOldMessages as beingOldMessages} from "./response.js";
+import {beingOldForms as beingOldForms} from "./response.js";
+//реакции на слова о старости
 import{quotes as quotes} from "./response.js";
+//длинные цитаты-наставления
 
+
+// Слова для конструирования разборных предложений
+import {conjunction as conjunction} from "./response.js";
+// союзны и союзные слова
+import {agreeWords as agreeWords} from "./response.js";
+//слова согласия, как короткие, так и отдельные фразы
+import {disagreeWords as disagreeWords} from "./response.js";
+//слова несогласия, как короткие, так и отдельные фразы
 import { introductoryWords as introductoryWords } from "./response.js";
+//вводные вступительные, заключительные и нейтральные фразы
 import { binderPhrases as binderPhrases } from "./response.js";
+//конструкции мосты, вроде "это есть" или "оно такое"
 import { descriptionWords as descriptionWords } from "./response.js";
+//прилагательные и наречия для выражения своего мнения
+
+
+// Реакция на отдельные имена
+import {alex as alex} from "./response.js";
+import {alexResponse as alexResponse} from "./response.js";
+//реакция на Алёшу
+
+// Работа с фотографиями
+import {pictureWords as pictureWords} from "./response.js";
+import {pictureMessages as pictureMessages} from "./response.js";
+//короткие реакции на слова о фотографиях
+import {pictures as pictures} from "./pictures.js";
+//альбом подгружаемых фотографий
+
+
 
 
 //функция для выведения рандомного числа из длины массива
@@ -49,7 +75,6 @@ setTimeout(() => {
 chatbotSendMessage(beginnigMessages[randomArrayNumber(beginnigMessages)])
 
 }, 2000);
-
 
 //добавляет в HTML уже готовое сообщение от бота
 function chatbotSendMessage(messageText){
@@ -81,7 +106,6 @@ function chatbotSendPictures(){
 	chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
-
 //добавляет в HTML уже готовое сообщение от пользователя
 function sendMessage(messageText){
 
@@ -103,7 +127,6 @@ function sendMessage(messageText){
 
 //добавляем кнопке функцию отправки готового сообщения от пользователя
 sendBtn.addEventListener("click", clickSendBtn);
-
 
 //сама функция отправки сообщения от пользователя
 function clickSendBtn(){
@@ -131,11 +154,10 @@ input.addEventListener("keypress", function(e){
 	}
 });
 
-
-
 function processMessage(){
 
-	let marks = /[,.!?';:\s]+/; // параметр, который эти знаки через regexp
+	let marks = /[,.!?';:\s]+/; 
+	// параметр, который фильтрует знаки через regexp
 	let message = new String(user.message).toLowerCase().split(marks); //создает массив из сообщения
 	
 	const oldMatch = beingOldForms.filter(element => message.includes(element));
@@ -144,6 +166,9 @@ function processMessage(){
 	const greetingsMatch = greetingsWords.filter(element => message.includes(element));
 	const agreeMatch = agreeWords.filter(element => message.includes(element));
 	const disagreeMatch = disagreeWords.filter(element => message.includes(element));
+	const alexMatch = alex.filter(element => message.includes(element));
+	
+	const questionsMatch = generalQuestions.filter(element => message.includes(element));
 
 	//функция делает первую букву ответа заглавной
 	function toUpperCaseAnswer(answer){
@@ -193,6 +218,24 @@ function processMessage(){
 			let answer = pictureMessages[randomArrayNumber(pictureMessages)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1800);
+	} 
+	
+	//заговорили про Алёшу
+	else if(alexMatch.length != 0){
+		setTimeout(() => {
+
+			let answers =[
+				`${alexResponse[randomArrayNumber(alexResponse)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+				`${agreeWords[randomArrayNumber(agreeWords)]} ${alexResponse[randomArrayNumber(alexResponse)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+				`${binderPhrases[randomArrayNumber(binderPhrases)]} ${alexResponse[randomArrayNumber(alexResponse)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+				`${disagreeWords[randomArrayNumber(disagreeWords)]} ${alexResponse[randomArrayNumber(alexResponse)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+
+			]
+
+			let answer = answers[randomArrayNumber(answers)];;
+
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1200);
 	}
 
 	//согласие и несогласие
@@ -217,6 +260,24 @@ function processMessage(){
 
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1400);
+	}
+
+	else if(questionsMatch.length != 0){
+		setTimeout(() => {
+
+			let answers = [
+				`${generalAnswers[randomArrayNumber(generalAnswers)]}`,
+				`${generalAnswers[randomArrayNumber(generalAnswers)]} ${conjunction[randomArrayNumber(conjunction)]} ${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+				`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
+				`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]} ${conjunction[randomArrayNumber(conjunction)]} ${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+
+			]
+			
+			
+
+			let answer = answers[randomArrayNumber(answers)];;
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1200);
 	}
 
 	//когда вообще ничего не понял
