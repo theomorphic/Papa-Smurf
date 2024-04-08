@@ -9,8 +9,6 @@ const user = {message:"", counter:0};
 
 
 // Готовые короткие предложения и фразы
-import {beginnigMessages as beginnigMessages} from "./response.js";
-//короткие вступительные фразы и small talk
 import { greetingsWords as greetingsWords } from "./response.js";
 import { greetingsMessages as greetingsMessages } from "./response.js";
 //короткие приветствия и пожелания
@@ -25,6 +23,8 @@ import { answers as generalAnswers } from "./response.js";
 
 
 // Готовые длинные предложения и фразы
+import {smalltalk as smalltalk} from "./response.js";
+//small talk
 import {beingOldMessages as beingOldMessages} from "./response.js";
 import {beingOldForms as beingOldForms} from "./response.js";
 //реакции на слова о старости
@@ -80,7 +80,7 @@ function randomArrayNumber(arrayName){
 
 //Вступительное сообщение 
 setTimeout(() => {
-chatbotSendMessage(beginnigMessages[randomArrayNumber(beginnigMessages)])
+chatbotSendMessage(smalltalk[randomArrayNumber(smalltalk)]);
 
 }, 2000);
 
@@ -339,9 +339,8 @@ function processMessage(){
 				`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
 				`${descriptionWords[randomArrayNumber(descriptionWords)]}`,
 				`${descriptionWords[randomArrayNumber(descriptionWords)]} ${quotes[randomArrayNumber(quotes)]}`,
-				`${introductoryWords[randomArrayNumber(introductoryWords)]}`,
 				`You sound like ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
-				
+				`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]} ${smalltalk[randomArrayNumber(smalltalk)]}`,
 			]
 
 			let answer = answers[randomArrayNumber(answers)];
