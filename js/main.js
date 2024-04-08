@@ -29,6 +29,7 @@ import {beingOldMessages as beingOldMessages} from "./response.js";
 import {beingOldForms as beingOldForms} from "./response.js";
 //реакции на слова о старости
 import{quotes as quotes} from "./response.js";
+import { quotesAsking as quotesAsking } from "./response.js";
 //длинные цитаты-наставления
 
 
@@ -51,6 +52,13 @@ import { descriptionWords as descriptionWords } from "./response.js";
 import {alex as alex} from "./response.js";
 import {alexResponse as alexResponse} from "./response.js";
 //реакция на Алёшу
+
+import { misha as misha } from "./response.js";
+//реакции на Мишу
+
+//Категории разных понятий
+import { foodNames as foodNames } from "./response.js";
+//спиок названий различной еды
 
 // Работа с фотографиями
 import {pictureWords as pictureWords} from "./response.js";
@@ -167,7 +175,8 @@ function processMessage(){
 	const agreeMatch = agreeWords.filter(element => message.includes(element));
 	const disagreeMatch = disagreeWords.filter(element => message.includes(element));
 	const alexMatch = alex.filter(element => message.includes(element));
-	
+	const quoteMatch = quotesAsking.filter(element => message.includes(element));
+
 	const questionsMatch = generalQuestions.filter(element => message.includes(element));
 
 	//функция делает первую букву ответа заглавной
@@ -196,7 +205,22 @@ function processMessage(){
 	//негатив
 	else if(negativeMatch.length != 0){
 		setTimeout(() => {
-			let answer = negativeMessages[randomArrayNumber(negativeMessages)];
+
+			let answers =[
+				`${negativeMessages[randomArrayNumber(negativeMessages)]}`,
+				`You are ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}, ${negativeMessages[randomArrayNumber(negativeMessages)]}`,
+				`${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}, ${negativeMessages[randomArrayNumber(negativeMessages)]}`,
+				`You sound like ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
+				`I'm gonna call you ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
+				`This is not okay, ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
+				`Very ${descriptionWords[randomArrayNumber(descriptionWords)]}, you ${foodNames[randomArrayNumber(foodNames)]}`,
+				`Oh so ${descriptionWords[randomArrayNumber(descriptionWords)]}, ${negativeMessages[randomArrayNumber(negativeMessages)]}`,
+				`It's rude, you are ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
+
+			]
+
+			let answer = answers[randomArrayNumber(answers)];
+			
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 
 		}, 1500);
@@ -219,6 +243,21 @@ function processMessage(){
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1800);
 	} 
+	else if(quoteMatch.length != 0){
+		setTimeout(() => {
+
+			let answers =[
+				`${quotes[randomArrayNumber(quotes)]}`,
+				`${agreeWords[randomArrayNumber(agreeWords)]} ${quotes[randomArrayNumber(quotes)]}`,
+				`${introductoryWords[randomArrayNumber(introductoryWords)]} ${quotes[randomArrayNumber(quotes)]}`,
+			
+			]
+			
+			let answer = answers[randomArrayNumber(answers)];
+			
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1200);
+	}
 	
 	//заговорили про Алёшу
 	else if(alexMatch.length != 0){
@@ -253,6 +292,8 @@ function processMessage(){
 				`${disagreeWords[randomArrayNumber(disagreeWords)]} ${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
 				`${agreeWords[randomArrayNumber(agreeWords)]} ${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]} ${conjunction[randomArrayNumber(conjunction)]}`,
 				`${disagreeWords[randomArrayNumber(disagreeWords)]} ${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]} ${conjunction[randomArrayNumber(conjunction)]}`,
+				`You sound like ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
+
 			
 			]
 
@@ -298,6 +339,7 @@ function processMessage(){
 				`${descriptionWords[randomArrayNumber(descriptionWords)]}`,
 				`${descriptionWords[randomArrayNumber(descriptionWords)]} ${quotes[randomArrayNumber(quotes)]}`,
 				`${introductoryWords[randomArrayNumber(introductoryWords)]}`,
+				`You sound like ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
 				
 			]
 
