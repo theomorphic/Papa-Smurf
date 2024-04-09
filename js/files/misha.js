@@ -28,5 +28,11 @@ const mishaActivities = [
 	"drinking tomato juice while eating white chocolate",
 	"making overconfident statements",
 	"creating stupid dwarfs",
+	"drawing Donald Duck",
+	"creating scandals",
+	"playing Minecraft",
+	"reading useless fiction books",
+	"playing violent video games",
+	"listening to noise so-called music",
 ]
 export{mishaActivities}

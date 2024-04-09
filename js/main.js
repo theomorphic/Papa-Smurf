@@ -48,6 +48,7 @@
 	//конструкции мосты, вроде "это есть" или "оно такое"
 	import { descriptionWords as descriptionWords } from "./response.js";
 	//прилагательные и наречия для выражения своего мнения
+	import { positiveDescriptionWords as positiveDescriptionWords } from "./response.js";
 
 
 // РЕАКЦИЯ НА ОТДЕЛЬНЫЕ ИМЕНА И ОБРАЩЕНИЯ
@@ -100,7 +101,9 @@
 	//слова о природе
 	import { natureDescription as natureDescription } from "./categories.js";
 	//описание природы
-
+	import { musicGenres as musicGenres } from "./categories.js";
+	import { musicDescription as musicDescription } from "./categories.js";
+	//музыкальные жанры и реакция на них
 
 // РАБОТА С ФОТОГРАФИЯМИ
 	import {pictureWords as pictureWords} from "./response.js";
@@ -121,17 +124,6 @@
 		return answer.charAt(0).toUpperCase() + answer.slice(1);
 	}
 	//функция делает первую букву ответа заглавной
-	function processTopics(topic, description){
-
-		let answers = [
-				`About ${topic}, I find it pretty ${description}`,
-				`${topic}? Yeah, it's ${description} for my taste`,
-	
-			]
-
-		let answer = answers[randomArrayNumber(answers)];
-		return answer;
-	}
 
 	
 						// АЛГОРИТМ РАБОТЫ ЧАТ БОТА\\
@@ -226,6 +218,60 @@
 
 //ГЕНЕРАЦИЯ СООБЩЕНИЯ ЧАТ БОТА: ИЗВИЛИНЫ
 
+	function processTopics(topic, description){
+
+		let answers = [
+				`About ${topic}, I find it pretty ${description}`,
+				`${topic}? Yeah, it's ${description} for my taste`,
+				`Are you talking about ${topic}? That is so ${description}`,
+				`Funny, you mentioned ${topic}, I see it as something ${description}`,
+				`${description}. You think it applies to ${topic}?`,
+				`You know what? ${toUpperCaseAnswer(topic)} is just ${description}. I needed to say it`,
+				`In my perspective, ${topic} is ${description}`,
+				`To me, ${topic} is simply ${description}. Do you agree?`,
+				`It's my belief that ${topic} is ${description}`,
+				`${topic} is simply ${description} in my eyes`,
+				`Personally, I find ${topic} ${description}`,
+				`One adjective I would use for ${topic} is ${description}`,
+				`From my standpoint, ${topic} is ${description}`,
+				`I perceive ${topic} as ${description}. What about you?`,
+				`Expressing my opinion about ${topic}, I would describe it as ${description}`,
+				`I find ${topic} to be ${description}`,
+				`To me, ${topic} appears ${description}`,
+				`It seems to me that ${topic} is ${description}. It should be ${description}`,
+				`When it comes to ${topic}, I see it as ${description}`,
+				`My take on ${topic} is ${description}`,
+				`My stance on ${topic} is ${description}, agree?`,
+				`I reckon ${topic} is ${description}`,
+				`It strikes me that ${topic} is ${description}`,
+				`I regard ${topic} as ${description}`,
+				`I opine that ${topic} is ${description}. What do you think here?`,
+				`In my estimation, ${topic} is ${description}`,
+				`As far as I'm concerned, ${topic} is ${description}`,
+				`My position on ${topic} is that it is ${description}`,
+				`In my judgment, ${topic} is ${description}`,
+				`My perspective leads me to see ${topic} as ${description}`,
+				`My sense of ${topic} is ${description}`,
+				`I understand ${topic} as ${description}`,
+				`I am convinced that ${topic} is ${description}`,
+				`It is my belief that ${topic} is ${description}`,
+				`I interpret ${topic} as something ${description}`,
+				`To my mind, ${topic} falls under the category of ${description}`,
+				`I categorize ${topic} as ${description}. And I'm not joking here`,
+				`In a nutshell, ${topic} is ${description}`,
+				`It is my considered view that ${topic} is ${description}`,
+				`It is my belief that ${topic} can be defined as ${description}`,
+				`I put ${topic} in the category of ${description}`,
+				`My considered opinion is that ${topic} is ${description}`,
+
+
+			]
+
+		let answer = answers[randomArrayNumber(answers)];
+		return answer;
+	}
+	//функция формирования мнения по определенной тематике
+
 	function processMessage(){
 
 		//ФИЛЬТР ДЛЯ СООБЩЕНИЯ ПОЛЬЗОВАТЕЛЯ
@@ -265,6 +311,7 @@
 		const animalMatch = animalWords.filter(element => message.includes(element));
 		const loveMatch = loveWords.filter(element => message.includes(element));
 		const natureMatch = natureWords.filter(element => message.includes(element));
+		const musicMatch = musicGenres.filter(element => message.includes(element));
 
 
 		//фотографии и мотивационные цитаты
@@ -348,7 +395,7 @@
 				setTimeout(() => {
 
 					let answers =[
-						`${toUpperCaseAnswer(unknownNameMatch[0])}! This name is ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+						`${toUpperCaseAnswer(unknownNameMatch[0])}! This name is ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
 						`Oh it's ${toUpperCaseAnswer(unknownNameMatch[0])}. ${unknownNamesMessages[randomArrayNumber(unknownNamesMessages)]}`,
 						`${toUpperCaseAnswer(unknownNameMatch[0])}! ${unknownNamesMessages[randomArrayNumber(unknownNamesMessages)]}`,
 
@@ -364,8 +411,8 @@
 				setTimeout(() => {
 
 					let answers =[
-						`${toUpperCaseAnswer(mishaMatch[0])}? ${mishaMessages[randomArrayNumber(mishaMessages)]} ${animalDescription[randomArrayNumber(animalDescription)]}`,
-						`${mishaMessages[randomArrayNumber(mishaMessages)]} ${animalDescription[randomArrayNumber(animalDescription)]}`,
+						`${toUpperCaseAnswer(mishaMatch[0])}? ${mishaMessages[randomArrayNumber(mishaMessages)]} ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
+						`${mishaMessages[randomArrayNumber(mishaMessages)]} ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
 						`Ohh, that Smurf. "${movieTitles[randomArrayNumber(movieTitles)]}" is his favorite movie, as I remember`,
 						`Well, ${toUpperCaseAnswer(mishaMatch[0])} likes ${mishaActivities[randomArrayNumber(mishaActivities)]}`,
 						`${toUpperCaseAnswer(mishaMatch[0])} loves ${mishaActivities[randomArrayNumber(mishaActivities)]}`,
@@ -381,14 +428,12 @@
 				setTimeout(() => {
 
 					let answers =[
-						`${alexResponse[randomArrayNumber(alexResponse)]} ${animalDescription[randomArrayNumber(animalDescription)]}`,
-						`${agreeWords[randomArrayNumber(agreeWords)]} ${alexResponse[randomArrayNumber(alexResponse)]} ${animalDescription[randomArrayNumber(animalDescription)]}`,
-						`${binderPhrases[randomArrayNumber(binderPhrases)]} ${alexResponse[randomArrayNumber(alexResponse)]} ${animalDescription[randomArrayNumber(animalDescription)]}`,
-						`${disagreeWords[randomArrayNumber(disagreeWords)]} ${alexResponse[randomArrayNumber(alexResponse)]} ${animalDescription[randomArrayNumber(animalDescription)]}`,
+						`${alexResponse[randomArrayNumber(alexResponse)]} ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
+						`${agreeWords[randomArrayNumber(agreeWords)]} ${alexResponse[randomArrayNumber(alexResponse)]} ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
 						`${alexMatch[0]}? He loves ${alexLang[randomArrayNumber(alexLang)]}`,
 						`Ohh ${toUpperCaseAnswer(alexMatch[0])}? That guy speaks ${alexLang[randomArrayNumber(alexLang)]}`,
-						`You said ${toUpperCaseAnswer(alexMatch[0])}? He is ${animalDescription[randomArrayNumber(animalDescription)]}`,
-						`Yeah, ${toUpperCaseAnswer(alexMatch[0])}, what about him? I think he's ${animalDescription[randomArrayNumber(animalDescription)]}`,
+						`You said ${toUpperCaseAnswer(alexMatch[0])}? He is ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
+						`Yeah, ${toUpperCaseAnswer(alexMatch[0])}, what about him? I think he's ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
 						`Oh I know him. His favorite movie, if I remember correctly is "${movieTitles[randomArrayNumber(movieTitles)]}"`,
 						`That Smurf. "${movieTitles[randomArrayNumber(movieTitles)]}" is his favorite movie, right?`,
 						`${toUpperCaseAnswer(alexMatch[0])}! ${unknownNamesMessages[randomArrayNumber(unknownNamesMessages)]}`,
@@ -404,13 +449,13 @@
 				setTimeout(() => {
 					let answers = [
 						`${mattMessages[randomArrayNumber(mattMessages)]}`,
-						`Ohh ${toUpperCaseAnswer(mattMatch[0])}, I know him! He's ${descriptionWords[randomArrayNumber(descriptionWords)]}!`,
+						`Ohh ${toUpperCaseAnswer(mattMatch[0])}, I know him! He's ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}!`,
 						`${toUpperCaseAnswer(mattMatch[0])}? Yeah, ${mattMessages[randomArrayNumber(mattMessages)]}`,
-						`${toUpperCaseAnswer(mattMatch[0])} is ${descriptionWords[randomArrayNumber(descriptionWords)]}!`,
-						`${toUpperCaseAnswer(mattMatch[0])} is ${descriptionWords[randomArrayNumber(descriptionWords)]} ${animalWords[randomArrayNumber(animalWords)]}!`,
-						`This guy? Yeah, ${toUpperCaseAnswer(mattMatch[0])} is ${descriptionWords[randomArrayNumber(descriptionWords)]}!`,
+						`${toUpperCaseAnswer(mattMatch[0])} is ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}!`,
+						`${toUpperCaseAnswer(mattMatch[0])} is ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}!`,
+						`This guy? Yeah, ${toUpperCaseAnswer(mattMatch[0])} is ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}!`,
 						`${toUpperCaseAnswer(mattMatch[0])} watches ${mattAnimeNames[randomArrayNumber(mattAnimeNames)]}`,
-						`I remember him! ${toUpperCaseAnswer(mattMatch[0])} is ${descriptionWords[randomArrayNumber(descriptionWords)]}!`,	
+						`I remember him! ${toUpperCaseAnswer(mattMatch[0])} is ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}!`,	
 						`${toUpperCaseAnswer(mattMatch[0])} likes so much ${mattAnimeNames[randomArrayNumber(mattAnimeNames)]}`,
 						`Oh I know him. His favorite movie, if I remember correctly is "${movieTitles[randomArrayNumber(movieTitles)]}"`,
 						`${toUpperCaseAnswer(mattMatch[0])}! ${unknownNamesMessages[randomArrayNumber(unknownNamesMessages)]}`,
@@ -425,11 +470,12 @@
 			else if(yarmanMatch.length !=0){
 				setTimeout(() => {
 					let answers = [
-						`${toUpperCaseAnswer(yarmanMatch[0])} is ${animalDescription[randomArrayNumber(animalDescription)]}`,
+						`${toUpperCaseAnswer(yarmanMatch[0])} is ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
 						`${toUpperCaseAnswer(yarmanMatch[0])} likes ${yarmanActivities[randomArrayNumber(yarmanActivities)]}`,
 						`That smurf loves ${yarmanActivities[randomArrayNumber(yarmanActivities)]}`,
-						`${yarmanMessages[randomArrayNumber(yarmanMessages)]} ${animalDescription[randomArrayNumber(animalDescription)]}`,
-						`${toUpperCaseAnswer(yarmanMatch[0])} is so ${descriptionWords[randomArrayNumber(descriptionWords)]}, his favorite movie must be "${movieTitles[randomArrayNumber(movieTitles)]}"`,
+						`${yarmanMessages[randomArrayNumber(yarmanMessages)]} ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
+						`${toUpperCaseAnswer(yarmanMatch[0])} is so ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}, his favorite movie must be "${movieTitles[randomArrayNumber(movieTitles)]}"`,
+						`${toUpperCaseAnswer(yarmanMatch[0])}, I would say he's ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
 						`${toUpperCaseAnswer(yarmanMatch[0])}! ${unknownNamesMessages[randomArrayNumber(unknownNamesMessages)]}`,
 					]
 					
@@ -527,7 +573,15 @@
 					let answer = processTopics(natureMatch[0], natureDescription[randomArrayNumber(natureDescription)]);
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1300);
-			}			
+			}	
+			//музыка
+			else if(musicMatch.length != 0){
+				setTimeout(() => {
+
+					let answer = processTopics(musicMatch[0], musicDescription[randomArrayNumber(musicDescription)]);
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1300);
+			}						
 
 		//ФОТОГРАФИИ И МОТИВАЦИОННЫЕ ЦИТАТЫ
 

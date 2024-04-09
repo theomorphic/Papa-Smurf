@@ -26,7 +26,6 @@ const alexResponse = [
 	"you know, I find this name",
 	"wait, Alex? He's",
 	"I prefer to call him Alyosha because it's more",
-	"don't call him like this, it's",
 	"not sure about him, he is",
 	"ohh, don't mention him, he's like Gargamel and it's",
 	"him? I think he's friends with Gargamel, he's",
