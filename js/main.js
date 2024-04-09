@@ -211,8 +211,10 @@ function processMessage(){
 		setTimeout(() => {
 			let answers =[
 				`${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
-				`Did you call me ${negativeMatch[0]}? ${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
-				`${disagreeWords[randomArrayNumber(disagreeWords)]}, you called me ${negativeMatch[0]}? ${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
+				`You said to me "${negativeMatch[0]}"? ${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
+				`${disagreeWords[randomArrayNumber(disagreeWords)]}, you said to me "${negativeMatch[0]}"? ${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
+				`${negativeMatch[0]}, huh? ${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
+				`So "${negativeMatch[0]}", right? That's how you talk to me. ${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
 				
 			]
 			

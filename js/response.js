@@ -605,10 +605,7 @@ const agreeWords = [
 	"exactly",
 	"precisely",
 	"true",
-	"fact",
-	"facts",
 	"correct",
-	"agree",
 ]
 export{agreeWords}
 //слова согласия, как короткие, так и отдельные фразы
@@ -620,7 +617,6 @@ const disagreeWords = [
 	"bad",
 	"sad",
 	"nay",
-	"disagree",
 	"finally"
 ]
 export{disagreeWords}
