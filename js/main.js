@@ -1,5 +1,5 @@
 
-// Управление HTML интерфейсом
+// УПРАВЛЕНИЕ HTML ИНТЕРФЕЙСОМ
 const sendBtn = document.getElementById("sendBtn");
 const input = document.getElementById("input");
 const chatContainer = document.getElementById("chatContainer");
@@ -8,7 +8,7 @@ const user = {message:"", counter:0};
 //буферная зона для сообщения от пользователя
 
 
-// Готовые короткие предложения и фразы
+// КОРОТКИЕ ПРЕДЛОЖЕНИЯ И ФРАЗЫ
 import { greetingsWords as greetingsWords } from "./response.js";
 import { greetingsMessages as greetingsMessages } from "./response.js";
 //короткие приветствия и пожелания
@@ -22,7 +22,7 @@ import { answers as generalAnswers } from "./response.js";
 //короткие ответы на вопросы
 
 
-// Готовые длинные предложения и фразы
+// ДЛИННЫЕ ПРЕДЛОЖЕНИЯ И ФРАЗЫ
 import {smalltalk as smalltalk} from "./response.js";
 //small talk
 import {beingOldMessages as beingOldMessages} from "./response.js";
@@ -34,7 +34,7 @@ import { quotesAsking as quotesAsking } from "./response.js";
 import { negativePersonalMessages as negativePersonalMessages } from "./response.js";
 //реакция на личные оскорбления
 
-// Слова для конструирования разборных предложений
+// СЛОВА ДЛЯ КОНСТРУИРОВАНИЯ РАЗБОРНЫХ ПРЕДЛОЖЕНИЙ
 import {conjunction as conjunction} from "./response.js";
 // союзны и союзные слова
 import {agreeWords as agreeWords} from "./response.js";
@@ -49,10 +49,12 @@ import { descriptionWords as descriptionWords } from "./response.js";
 //прилагательные и наречия для выражения своего мнения
 
 
-// Реакция на отдельные имена и обращения
+// РЕАКЦИЯ НА ОТДЕЛЬНЫЕ ИМЕНА И ОБРАЩЕНИЯ
 import {alex as alex} from "./response.js";
 import {alexResponse as alexResponse} from "./response.js";
 //реакция на Алёшу
+import { alexLang as alexLang } from "./response.js";
+//Языки Алёши
 import { misha as misha } from "./response.js";
 //реакции на Мишу
 import { matt as matt } from "./response.js";
@@ -68,7 +70,7 @@ import { meStateWords as meStateWords } from "./response.js";
 //первое лицо бота с глаголом быть
 
 
-//Категории разных понятий
+// КАТЕГОРИИ РАЗНЫХ ПОНЯТИЙ
 import {foodNames as foodNames} from "./categories.js";
 //список названий различной еды
 import {waterWords as waterWords} from "./categories.js";
@@ -79,7 +81,7 @@ import { loveWords as loveWords } from "./categories.js";
 import {animeNames as animeNames } from "./categories.js";
 
 
-// Работа с фотографиями
+// РАБОТА С ФОТОГРАФИЯМИ
 import {pictureWords as pictureWords} from "./response.js";
 import {pictureMessages as pictureMessages} from "./response.js";
 //короткие реакции на слова о фотографиях
@@ -305,6 +307,10 @@ function processMessage(){
 				`${agreeWords[randomArrayNumber(agreeWords)]} ${alexResponse[randomArrayNumber(alexResponse)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
 				`${binderPhrases[randomArrayNumber(binderPhrases)]} ${alexResponse[randomArrayNumber(alexResponse)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
 				`${disagreeWords[randomArrayNumber(disagreeWords)]} ${alexResponse[randomArrayNumber(alexResponse)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+				`${alexMatch[0]}? He loves ${alexLang[randomArrayNumber(alexLang)]}`,
+				`Ohh ${toUpperCaseAnswer(alexMatch[0])}? That guy speaks ${alexLang[randomArrayNumber(alexLang)]}`,
+				`You said ${toUpperCaseAnswer(alexMatch[0])}? He is ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+				`Yeah, ${toUpperCaseAnswer(alexMatch[0])}, what about him? I think he's ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
 
 			]
 

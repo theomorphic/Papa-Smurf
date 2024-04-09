@@ -1,6 +1,6 @@
 
 
-// Готовые короткие предложения и фразы
+// КОРОТКИЕ ПРЕДЛОЖЕНИЯ И ФРАЗЫ
 const greetingsWords = [
 	"hey",
 	"hello",
@@ -155,7 +155,7 @@ const noIdeaMessages = [
 	"wait what?",
 	"that's smurfing me a little",
 	"I'm gonna be honest here: I've no idea about it",
-	"I'm wanna be honest with you: I've no idea what you've jsut said",
+	"I'm wanna be honest with you: I've no idea what you've just said",
 	"that makes me think",
 	"oh I don't know it",
 	"sorry, it's not my field of activity",
@@ -195,7 +195,7 @@ export {noIdeaMessages}
 //короткие реакции на полное непонимание темы
 
 
-// Готовые длинные предложения и фразы
+// ДЛИННЫЕ ПРЕДЛОЖЕНИЯ И ФРАЗЫ
 const smalltalk = [
 	"How's the weather up in your neck of the woods?",
 	"Have you tried any new mushroom recipes lately?",
@@ -547,7 +547,7 @@ const negativePersonalMessages = [
 export{negativePersonalMessages}
 
 
-// Слова для конструирования разборных предложений
+// СЛОВА ДЛЯ КОНСТРУИРОВАНИЯ РАЗБОРНЫХ ПРЕДЛОЖЕНИЙ
 const conjunction = [
 	"and",
 	"and ahh",
@@ -1079,7 +1079,128 @@ export{descriptionWords}
 //прилагательные и наречия для выражения своего мнения
 
 
-// Работа с фотографиями
+// РЕАКЦИЯ НА ОТДЕЛЬНЫЕ ИМЕНА И ОБРАЩЕНИЯ
+const alex = [
+	"alex",
+	"lexa",
+	"леха",
+	"леша",
+	"алешка",
+	"алёшка",
+	"origin",
+	"lilkitchen",
+	"parfe",
+	"алексей",
+	"alyosha"
+]
+export{alex}
+const alexResponse = [
+	"this name is",
+	"oh Alex is",
+	"I don't think that this so-called Alex is",
+	"that name is",
+	"you know, I find this name",
+	"wait, Alex? He's",
+	"I prefer to call him Alyosha because it's more",
+	"don't call him like this, it's",
+	"not sure about him, he is",
+	"ohh, don't mention him, he's like Gargamel and it's",
+	"him? I think he's friends with Gargamel, he's",
+	"this name, arrr, it's"
+]
+export{alexResponse}
+const alexLang = [
+	"Lithuanian",
+	"Latvian",
+	"German",
+	"Chinese",
+	"French",
+	"Greek",
+	"Hebrew"
+]
+export{alexLang}
+const misha = [
+	"misha",
+	"mike",
+	"michael",
+	"theomorphic",
+	"soters",
+	"maxwell",
+	"миша",
+	"felixmk",
+	"felix",
+]
+export{misha}
+//реакции на Мишу
+const matt = [
+	"matt",
+	"матвей",
+	"матвейка",
+	"мэтью",
+	"отя",
+	"оття",
+	"matthew",
+	"matvey",
+	"мэтт"
+]
+export{matt}
+const mattMessages = [
+	"he likes to watch anime",
+	"he does karate",
+	"he likes to stab in the back",
+]
+export{mattMessages}
+
+const youWords = [
+	"you",
+	"youre",
+	"yours",
+	"yous",
+	"yo",
+	"ya",
+	"u",
+	"ur",
+	"yourself",
+	"youse",
+	"smurf",
+	"papa",
+	"father",
+	"ты",
+	"вы"
+]
+export{youWords}
+//прямое обращение к боту
+
+const youPossessiveWords = [
+	"your",
+	"youre",
+	"yours",
+	"yous",
+	"youse",
+	"ur",
+	"yourself",
+]
+export {youPossessiveWords}
+
+const meActionWords = [
+	"I",
+	"Papa Smurf",
+	"Papa",
+	"The Wisest Smurf"
+]
+export{meActionWords}
+//обращение бота от первого лица
+
+const meStateWords = [
+	"Im",
+	"I am",
+	"am"
+]
+export{meStateWords}
+//личные местоимения с глаголом быть
+
+
+// РАБОТА С ФОТОГРАФИЯМИ
 const pictureWords = [
 	"picture",
 	"pictures",
@@ -1221,116 +1342,8 @@ export{pictureMessages}
 //короткие реакции на слова о фотографиях
 
 
-// Реакция на отдельные имена и обращения
-const alex = [
-	"alex",
-	"lexa",
-	"леха",
-	"леша",
-	"алешка",
-	"алёшка",
-	"origin",
-	"lilkitchen",
-	"parfe",
-	"алексей",
-	"alyosha"
-]
-export{alex}
-const alexResponse = [
-	"this name is",
-	"oh Alex is",
-	"I don't think that this so-called Alex is",
-	"that name is",
-	"you know, I find this name",
-	"wait, Alex? He's",
-	"I prefer to call him Alyosha because it's more",
-	"don't call him like this, it's",
-	"not sure about him, he is",
-	"ohh, don't mention him, he's like Gargamel and it's",
-	"him? I think he's friends with Gargamel",
-	"this name, arrr, it's"
-]
-export{alexResponse}
 
-const misha = [
-	"misha",
-	"mike",
-	"michael",
-	"theomorphic",
-	"soters",
-	"maxwell",
-	"миша",
-	"felixmk",
-	"felix",
-]
-export{misha}
-//реакции на Мишу
-const matt = [
-	"matt",
-	"матвей",
-	"матвейка",
-	"мэтью",
-	"отя",
-	"оття",
-	"matthew",
-	"matvey",
-	"мэтт"
-]
-export{matt}
-const mattMessages = [
-	"he likes to watch anime",
-	"he does karate",
-	"he likes to stab in the back",
-]
-export{mattMessages}
 
-const youWords = [
-	"you",
-	"youre",
-	"yours",
-	"yous",
-	"yo",
-	"ya",
-	"u",
-	"ur",
-	"yourself",
-	"youse",
-	"smurf",
-	"papa",
-	"father",
-	"ты",
-	"вы"
-]
-export{youWords}
-//прямое обращение к боту
-
-const youPossessiveWords = [
-	"your",
-	"youre",
-	"yours",
-	"yous",
-	"youse",
-	"ur",
-	"yourself",
-]
-export {youPossessiveWords}
-
-const meActionWords = [
-	"I",
-	"Papa Smurf",
-	"Papa",
-	"The Wisest Smurf"
-]
-export{meActionWords}
-//обращение бота от первого лица
-
-const meStateWords = [
-	"Im",
-	"I am",
-	"am"
-]
-export{meStateWords}
-//личные местоимения с глаголом быть
 
 const questions = [
 	"what",
