@@ -488,20 +488,16 @@
 				setTimeout(() => {
 
 					const answers = [
-						`${introductoryWords[randomArrayNumber(introductoryWords)]} ${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]} ${conjunction[randomArrayNumber(conjunction)]}  ${quotes[randomArrayNumber(quotes)]}`,
-						`${introductoryWords[randomArrayNumber(introductoryWords)]} ${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]} ${conjunction[randomArrayNumber(conjunction)]}  ${quotes[randomArrayNumber(quotes)]}`,
-						`${introductoryWords[randomArrayNumber(introductoryWords)]} ${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]} ${conjunction[randomArrayNumber(conjunction)]}  ${quotes[randomArrayNumber(quotes)]}`,
-						`${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
-						`${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+						`${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]} ${conjunction[randomArrayNumber(conjunction)]}  ${quotes[randomArrayNumber(quotes)]}`,
 						`${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
-						`${descriptionWords[randomArrayNumber(descriptionWords)]}`,
-						`${descriptionWords[randomArrayNumber(descriptionWords)]} ${quotes[randomArrayNumber(quotes)]}`,
-						`You sound like ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
-						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]} ${smalltalk[randomArrayNumber(smalltalk)]}`,
+						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${toUpperCaseAnswer(quotes[randomArrayNumber(quotes)])}`,
+						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${smalltalk[randomArrayNumber(smalltalk)]}`,
+						`${binderPhrases[randomArrayNumber(binderPhrases)]}, ${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${smalltalk[randomArrayNumber(smalltalk)]}`,
+
 					]
 
 					let answer = answers[randomArrayNumber(answers)];
