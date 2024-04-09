@@ -50,16 +50,21 @@ import { descriptionWords as descriptionWords } from "./response.js";
 
 
 // РЕАКЦИЯ НА ОТДЕЛЬНЫЕ ИМЕНА И ОБРАЩЕНИЯ
-import {alex as alex} from "./response.js";
-import {alexResponse as alexResponse} from "./response.js";
+import {alex as alex} from "./files/alex.js";
+import {alexResponse as alexResponse} from "./files/alex.js";
 //реакция на Алёшу
-import { alexLang as alexLang } from "./response.js";
+import { alexLang as alexLang } from "./files/alex.js";
 //Языки Алёши
 import { misha as misha } from "./response.js";
 //реакции на Мишу
-import { matt as matt } from "./response.js";
-import { mattMessages as mattMessages } from "./response.js";
+import { matt as matt } from "./files/matt.js";
+import { mattMessages as mattMessages } from "./files/matt.js";
+import {mattAnimeNames as mattAnimeNames } from "./files/matt.js";
 //реакция на Матвея
+import { yarman as yarman } from "./files/yarman.js";
+import { yarmanMessages as yarmanMessages } from "./files/yarman.js";
+import { yarmanActivities as yarmanActivities } from "./files/yarman.js";
+//реакция на Ярика
 import { youWords as youWords } from "./response.js";
 //обращение напрямую к боту
 import { youPossessiveWords as youPossessiveWords } from "./response.js";
@@ -78,7 +83,6 @@ import {waterWords as waterWords} from "./categories.js";
 import {animalWords as animalWords} from "./categories.js";
 import { loveWords as loveWords } from "./categories.js";
 //слова о любви и чувствах
-import {animeNames as animeNames } from "./categories.js";
 
 
 // РАБОТА С ФОТОГРАФИЯМИ
@@ -197,6 +201,7 @@ function processMessage(){
 	const disagreeMatch = disagreeWords.filter(element => message.includes(element));
 	const alexMatch = alex.filter(element => message.includes(element));
 	const mattMatch = matt.filter(element => message.includes(element));
+	const yarmanMatch = yarman.filter(element => message.includes(element));
 	const quoteMatch = quotesAsking.filter(element => message.includes(element));
 
 	const questionsMatch = generalQuestions.filter(element => message.includes(element));
@@ -313,8 +318,8 @@ function processMessage(){
 				`Ohh ${toUpperCaseAnswer(alexMatch[0])}? That guy speaks ${alexLang[randomArrayNumber(alexLang)]}`,
 				`You said ${toUpperCaseAnswer(alexMatch[0])}? He is ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
 				`Yeah, ${toUpperCaseAnswer(alexMatch[0])}, what about him? I think he's ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
-				`Oh I know him. His favorite movie, if I remember correctly is ${movieTitles[randomArrayNumber(movieTitles)]}`,
-				`That Smurf. ${movieTitles[randomArrayNumber(movieTitles)]} is his favorite movie, right?`,
+				`Oh I know him. His favorite movie, if I remember correctly is "${movieTitles[randomArrayNumber(movieTitles)]}"`,
+				`That Smurf. "${movieTitles[randomArrayNumber(movieTitles)]}" is his favorite movie, right?`,
 			
 			]
 
@@ -333,10 +338,28 @@ function processMessage(){
 				`${toUpperCaseAnswer(mattMatch[0])} is ${descriptionWords[randomArrayNumber(descriptionWords)]}!`,
 				`${toUpperCaseAnswer(mattMatch[0])} is ${descriptionWords[randomArrayNumber(descriptionWords)]} ${animalWords[randomArrayNumber(animalWords)]}!`,
 				`This guy? Yeah, ${toUpperCaseAnswer(mattMatch[0])} is ${descriptionWords[randomArrayNumber(descriptionWords)]}!`,
-				`${toUpperCaseAnswer(mattMatch[0])} watches ${animeNames[randomArrayNumber(animeNames)]}`,
+				`${toUpperCaseAnswer(mattMatch[0])} watches ${mattAnimeNames[randomArrayNumber(mattAnimeNames)]}`,
 				`I remember him! ${toUpperCaseAnswer(mattMatch[0])} is ${descriptionWords[randomArrayNumber(descriptionWords)]}!`,	
-				`${toUpperCaseAnswer(mattMatch[0])} likes so much ${animeNames[randomArrayNumber(animeNames)]}`,
-				`Oh I know him. His favorite movie, if I remember correctly is ${movieTitles[randomArrayNumber(movieTitles)]}`,
+				`${toUpperCaseAnswer(mattMatch[0])} likes so much ${mattAnimeNames[randomArrayNumber(mattAnimeNames)]}`,
+				`Oh I know him. His favorite movie, if I remember correctly is "${movieTitles[randomArrayNumber(movieTitles)]}"`,
+			
+			]
+			
+			let answer = answers[randomArrayNumber(answers)];
+	
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+
+		}, 1300);
+	}
+	//заговорили про Ярика
+	else if(yarmanMatch.length !=0){
+		setTimeout(() => {
+			let answers = [
+				`${toUpperCaseAnswer(yarmanMatch[0])} is ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+				`${toUpperCaseAnswer(yarmanMatch[0])} likes ${yarmanActivities[randomArrayNumber(yarmanActivities)]}`,
+				`That smurf loves ${yarmanActivities[randomArrayNumber(yarmanActivities)]}`,
+				`${yarmanMessages[randomArrayNumber(yarmanMessages)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+				`${toUpperCaseAnswer(yarmanMatch[0])} is so ${descriptionWords[randomArrayNumber(descriptionWords)]}, his favorite movie must be "${movieTitles[randomArrayNumber(movieTitles)]}"`,
 			
 			]
 			
