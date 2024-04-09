@@ -859,9 +859,7 @@ const loveWords = [
 ]
 export{loveWords}
 //слова о чувствах и любви
-
-
-
+ 
 const movieTitles = [
 	"The Godfather",
 	"Shawshank Redemption",

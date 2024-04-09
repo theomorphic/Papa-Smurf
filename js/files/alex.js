@@ -15,6 +15,7 @@ const alex = [
 	"алексей",
 	"alyosha",
 	"lex",
+	"alexei",
 ]
 export{alex}
 const alexResponse = [

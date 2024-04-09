@@ -51,16 +51,21 @@
 
 
 // РЕАКЦИЯ НА ОТДЕЛЬНЫЕ ИМЕНА И ОБРАЩЕНИЯ
+	import { unknownNames as unknownNames } from "./response.js";
+	import { unknownNamesMessages as unknownNamesMessages } from "./response.js";
+	//список неизвестных имён и реакций на них
 	import {alex as alex} from "./files/alex.js";
 	import {alexResponse as alexResponse} from "./files/alex.js";
 	//реакция на Алёшу
 	import { alexLang as alexLang } from "./files/alex.js";
 	//Языки Алёши
-	import { misha as misha } from "./response.js";
+	import { misha as misha } from "./files/misha.js";
+	import { mishaMessages as mishaMessages } from "./files/misha.js";
 	//реакции на Мишу
 	import { matt as matt } from "./files/matt.js";
 	import { mattMessages as mattMessages } from "./files/matt.js";
 	import {mattAnimeNames as mattAnimeNames } from "./files/matt.js";
+	import { mishaActivities as mishaActivities } from "./files/misha.js";
 	//реакция на Матвея
 	import { yarman as yarman } from "./files/yarman.js";
 	import { yarmanMessages as yarmanMessages } from "./files/yarman.js";
@@ -219,6 +224,8 @@
 		const greetingsMatch = greetingsWords.filter(element => message.includes(element));
 
 		//реакция на имена
+		const unknownNameMatch = unknownNames.filter(element => message.includes(element));
+		const mishaMatch = misha.filter(element => message.includes(element));
 		const alexMatch = alex.filter(element => message.includes(element));
 		const mattMatch = matt.filter(element => message.includes(element));
 		const yarmanMatch = yarman.filter(element => message.includes(element));
@@ -306,6 +313,39 @@
 		
 		//РЕАКЦИЯ НА ИМЕНА
 
+			//назвали неизвестное имя из списка
+			else if(unknownNameMatch.length != 0){
+				setTimeout(() => {
+
+					let answers =[
+						`${toUpperCaseAnswer(unknownNameMatch[0])}! This name is ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+						`Oh it's ${toUpperCaseAnswer(unknownNameMatch[0])}. ${unknownNamesMessages[randomArrayNumber(unknownNamesMessages)]}`,
+						`${toUpperCaseAnswer(unknownNameMatch[0])}! ${unknownNamesMessages[randomArrayNumber(unknownNamesMessages)]}`,
+
+					]
+
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);
+			}
+
+			//заговорили про Мишу
+			else if(mishaMatch.length != 0){
+				setTimeout(() => {
+
+					let answers =[
+						`${toUpperCaseAnswer(mishaMatch[0])}? ${mishaMessages[randomArrayNumber(mishaMessages)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+						`${mishaMessages[randomArrayNumber(mishaMessages)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+						`Ohh, that Smurf. "${movieTitles[randomArrayNumber(movieTitles)]}" is his favorite movie, as I remember`,
+						`Well, ${toUpperCaseAnswer(mishaMatch[0])} likes ${mishaActivities[randomArrayNumber(mishaActivities)]}`,
+						`${toUpperCaseAnswer(mishaMatch[0])} loves ${mishaActivities[randomArrayNumber(mishaActivities)]}`,
+					]
+
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1200);
+			}
+
 			//заговорили про Алёшу
 			else if(alexMatch.length != 0){
 				setTimeout(() => {
@@ -321,6 +361,7 @@
 						`Yeah, ${toUpperCaseAnswer(alexMatch[0])}, what about him? I think he's ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
 						`Oh I know him. His favorite movie, if I remember correctly is "${movieTitles[randomArrayNumber(movieTitles)]}"`,
 						`That Smurf. "${movieTitles[randomArrayNumber(movieTitles)]}" is his favorite movie, right?`,
+						`${toUpperCaseAnswer(alexMatch[0])}! ${unknownNamesMessages[randomArrayNumber(unknownNamesMessages)]}`,
 					
 					]
 
@@ -342,7 +383,7 @@
 						`I remember him! ${toUpperCaseAnswer(mattMatch[0])} is ${descriptionWords[randomArrayNumber(descriptionWords)]}!`,	
 						`${toUpperCaseAnswer(mattMatch[0])} likes so much ${mattAnimeNames[randomArrayNumber(mattAnimeNames)]}`,
 						`Oh I know him. His favorite movie, if I remember correctly is "${movieTitles[randomArrayNumber(movieTitles)]}"`,
-					
+						`${toUpperCaseAnswer(mattMatch[0])}! ${unknownNamesMessages[randomArrayNumber(unknownNamesMessages)]}`,
 					]
 					
 					let answer = answers[randomArrayNumber(answers)];
@@ -359,7 +400,7 @@
 						`That smurf loves ${yarmanActivities[randomArrayNumber(yarmanActivities)]}`,
 						`${yarmanMessages[randomArrayNumber(yarmanMessages)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
 						`${toUpperCaseAnswer(yarmanMatch[0])} is so ${descriptionWords[randomArrayNumber(descriptionWords)]}, his favorite movie must be "${movieTitles[randomArrayNumber(movieTitles)]}"`,
-					
+						`${toUpperCaseAnswer(yarmanMatch[0])}! ${unknownNamesMessages[randomArrayNumber(unknownNamesMessages)]}`,
 					]
 					
 					let answer = answers[randomArrayNumber(answers)];
