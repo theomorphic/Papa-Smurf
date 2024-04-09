@@ -52,13 +52,18 @@ import { descriptionWords as descriptionWords } from "./response.js";
 import {alex as alex} from "./response.js";
 import {alexResponse as alexResponse} from "./response.js";
 //реакция на Алёшу
-
 import { misha as misha } from "./response.js";
 //реакции на Мишу
 
+
 //Категории разных понятий
-import { foodNames as foodNames } from "./response.js";
-//спиок названий различной еды
+import {foodNames as foodNames} from "./categories.js";
+//список названий различной еды
+import {waterWords as waterWords} from "./categories.js";
+//список слов про воду, океаны и т.д.
+import {animalWords as animalWords} from "./categories.js";
+import { loveWords as loveWords } from "./categories.js";
+//слова о любви и чувствах
 
 // Работа с фотографиями
 import {pictureWords as pictureWords} from "./response.js";
@@ -67,7 +72,8 @@ import {pictureMessages as pictureMessages} from "./response.js";
 import {pictures as pictures} from "./pictures.js";
 //альбом подгружаемых фотографий
 
-
+//Извилины
+import { gyrus as gyrus } from "./gyruses.js";
 
 
 //функция для выведения рандомного числа из длины массива
