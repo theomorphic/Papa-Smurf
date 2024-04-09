@@ -1262,6 +1262,25 @@ const misha = [
 	"felix",
 ]
 export{misha}
+//реакции на Мишу
+const matt = [
+	"matt",
+	"матвей",
+	"матвейка",
+	"мэтью",
+	"отя",
+	"оття",
+	"matthew",
+	"matvey"
+]
+export{matt}
+const mattMessages = [
+	"ohh he loves the Winx fairies",
+	"he likes to watch anime",
+	"he does karate",
+	"he likes to stab in the back",
+]
+export{mattMessages}
 
 const youWords = [
 	"you",

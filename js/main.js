@@ -55,6 +55,9 @@ import {alexResponse as alexResponse} from "./response.js";
 //реакция на Алёшу
 import { misha as misha } from "./response.js";
 //реакции на Мишу
+import { matt as matt } from "./response.js";
+import { mattMessages as mattMessages } from "./response.js";
+//реакция на Матвея
 import { youWords as youWords } from "./response.js";
 //обращение напрямую к боту
 import { youPossessiveWords as youPossessiveWords } from "./response.js";
@@ -191,6 +194,7 @@ function processMessage(){
 	const agreeMatch = agreeWords.filter(element => message.includes(element));
 	const disagreeMatch = disagreeWords.filter(element => message.includes(element));
 	const alexMatch = alex.filter(element => message.includes(element));
+	const mattMatch = matt.filter(element => message.includes(element));
 	const quoteMatch = quotesAsking.filter(element => message.includes(element));
 
 	const questionsMatch = generalQuestions.filter(element => message.includes(element));
@@ -305,6 +309,24 @@ function processMessage(){
 
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1200);
+	}
+	//заговорили про Матвея
+	else if(mattMatch.length !=0){
+		setTimeout(() => {
+			let answers = [
+				`${mattMessages[randomArrayNumber(mattMessages)]}`,
+				`Ohh ${toUpperCaseAnswer(mattMatch[0])}, I know him! He's ${descriptionWords[randomArrayNumber(descriptionWords)]}!`,
+				`${toUpperCaseAnswer(mattMatch[0])}? Yeah, ${mattMessages[randomArrayNumber(mattMessages)]}`,
+				`${toUpperCaseAnswer(mattMatch[0])} is ${descriptionWords[randomArrayNumber(descriptionWords)]}!`,
+				`${toUpperCaseAnswer(mattMatch[0])} is ${descriptionWords[randomArrayNumber(descriptionWords)]} ${animalWords[randomArrayNumber(animalWords)]}!`,
+				`This guy? Yeah, ${toUpperCaseAnswer(mattMatch[0])} is ${descriptionWords[randomArrayNumber(descriptionWords)]}!`,
+				`I remember him! ${toUpperCaseAnswer(mattMatch[0])} is ${descriptionWords[randomArrayNumber(descriptionWords)]}!`,	
+			]
+			
+			let answer = answers[randomArrayNumber(answers)];;
+	
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1300);
 	}
 
 	//согласие и несогласие
