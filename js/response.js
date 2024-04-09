@@ -61,6 +61,7 @@ const negativeWords =[
 	"shit",
 	"shitting",
 	"shitted",
+	"shithole",
 	"sht",
 	"crap",
 	"poop",

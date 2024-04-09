@@ -86,8 +86,6 @@ import {pictureMessages as pictureMessages} from "./response.js";
 import {pictures as pictures} from "./pictures.js";
 //альбом подгружаемых фотографий
 
-//Извилины
-import { gyrus as gyrus } from "./gyruses.js";
 
 
 //функция для выведения рандомного числа из длины массива
@@ -206,11 +204,14 @@ function processMessage(){
 		return answer.charAt(0).toUpperCase() + answer.slice(1);
 	}
 	
+	//лично оскорбили
 	if(youMatch.length != 0 && negativeMatch.length != 0){
 		setTimeout(() => {
 			let answers =[
 				`${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
-				`Did you call me ${negativeMatch[0]}? ${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`
+				`Did you call me ${negativeMatch[0]}? ${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
+				`${disagreeWords[randomArrayNumber(disagreeWords)]}, you called me ${negativeMatch[0]}? ${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
+				
 			]
 			
 			let answer = answers[randomArrayNumber(answers)];
@@ -328,9 +329,10 @@ function processMessage(){
 			
 			]
 			
-			let answer = answers[randomArrayNumber(answers)];;
+			let answer = answers[randomArrayNumber(answers)];
 	
 			chatbotSendMessage(toUpperCaseAnswer(answer))
+
 		}, 1300);
 	}
 
