@@ -590,7 +590,6 @@ const agreeWords = [
 	"alright",
 	"of course",
 	"right",
-	"oki",
 	"fine",
 	"no problem",
 	"cool",
@@ -604,7 +603,6 @@ const agreeWords = [
 	"wonderful",
 	"awesome",
 	"great",
-	"norm",
 	"exactly",
 	"precisely",
 	"true",
@@ -618,7 +616,11 @@ const disagreeWords = [
 	"nuh",
 	"nein",
 	"nay",
-	"finally"
+	"finally",
+	"negative",
+	"none",
+	"nain",
+	"no-no",
 ]
 export{disagreeWords}
 //слова несогласия, как короткие, так и отдельные фразы
