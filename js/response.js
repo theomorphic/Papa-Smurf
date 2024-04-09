@@ -617,8 +617,6 @@ const disagreeWords = [
 	"nope",
 	"nuh",
 	"nein",
-	"bad",
-	"sad",
 	"nay",
 	"finally"
 ]

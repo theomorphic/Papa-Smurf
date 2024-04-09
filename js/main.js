@@ -84,11 +84,22 @@
 // КАТЕГОРИИ РАЗНЫХ ПОНЯТИЙ
 	import {foodNames as foodNames, movieTitles} from "./categories.js";
 	//список названий различной еды
+	import { foodDescription as foodDescription } from "./categories.js";
+	//описание еды
 	import {waterWords as waterWords} from "./categories.js";
 	//список слов про воду, океаны и т.д.
 	import {animalWords as animalWords} from "./categories.js";
+	//список животных
+	import { animalDescription as animalDescription } from "./categories.js";
+	//описание животных
 	import { loveWords as loveWords } from "./categories.js";
 	//слова о любви и чувствах
+	import { loveDescription as loveDescription } from "./categories.js";
+	//описание любви и чувств
+	import { natureWords as natureWords } from "./categories.js";
+	//слова о природе
+	import { natureDescription as natureDescription } from "./categories.js";
+	//описание природы
 
 
 // РАБОТА С ФОТОГРАФИЯМИ
@@ -110,6 +121,17 @@
 		return answer.charAt(0).toUpperCase() + answer.slice(1);
 	}
 	//функция делает первую букву ответа заглавной
+	function processTopics(topic, description){
+
+		let answers = [
+				`About ${topic}, I find it pretty ${description}`,
+				`${topic}? Yeah, it's ${description} for my taste`,
+	
+			]
+
+		let answer = answers[randomArrayNumber(answers)];
+		return answer;
+	}
 
 	
 						// АЛГОРИТМ РАБОТЫ ЧАТ БОТА\\
@@ -237,6 +259,14 @@
 		//вопросы
 		const questionsMatch = generalQuestions.filter(element => message.includes(element));
 
+		//категории познаний
+		const waterMatch = waterWords.filter(element => message.includes(element));
+		const foodMatch = foodNames.filter(element => message.includes(element));
+		const animalMatch = animalWords.filter(element => message.includes(element));
+		const loveMatch = loveWords.filter(element => message.includes(element));
+		const natureMatch = natureWords.filter(element => message.includes(element));
+
+
 		//фотографии и мотивационные цитаты
 		const pictureMatch = pictureWords.filter(element => message.includes(element));
 		const quoteMatch = quotesAsking.filter(element => message.includes(element));
@@ -334,8 +364,8 @@
 				setTimeout(() => {
 
 					let answers =[
-						`${toUpperCaseAnswer(mishaMatch[0])}? ${mishaMessages[randomArrayNumber(mishaMessages)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
-						`${mishaMessages[randomArrayNumber(mishaMessages)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+						`${toUpperCaseAnswer(mishaMatch[0])}? ${mishaMessages[randomArrayNumber(mishaMessages)]} ${animalDescription[randomArrayNumber(animalDescription)]}`,
+						`${mishaMessages[randomArrayNumber(mishaMessages)]} ${animalDescription[randomArrayNumber(animalDescription)]}`,
 						`Ohh, that Smurf. "${movieTitles[randomArrayNumber(movieTitles)]}" is his favorite movie, as I remember`,
 						`Well, ${toUpperCaseAnswer(mishaMatch[0])} likes ${mishaActivities[randomArrayNumber(mishaActivities)]}`,
 						`${toUpperCaseAnswer(mishaMatch[0])} loves ${mishaActivities[randomArrayNumber(mishaActivities)]}`,
@@ -351,14 +381,14 @@
 				setTimeout(() => {
 
 					let answers =[
-						`${alexResponse[randomArrayNumber(alexResponse)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
-						`${agreeWords[randomArrayNumber(agreeWords)]} ${alexResponse[randomArrayNumber(alexResponse)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
-						`${binderPhrases[randomArrayNumber(binderPhrases)]} ${alexResponse[randomArrayNumber(alexResponse)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
-						`${disagreeWords[randomArrayNumber(disagreeWords)]} ${alexResponse[randomArrayNumber(alexResponse)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+						`${alexResponse[randomArrayNumber(alexResponse)]} ${animalDescription[randomArrayNumber(animalDescription)]}`,
+						`${agreeWords[randomArrayNumber(agreeWords)]} ${alexResponse[randomArrayNumber(alexResponse)]} ${animalDescription[randomArrayNumber(animalDescription)]}`,
+						`${binderPhrases[randomArrayNumber(binderPhrases)]} ${alexResponse[randomArrayNumber(alexResponse)]} ${animalDescription[randomArrayNumber(animalDescription)]}`,
+						`${disagreeWords[randomArrayNumber(disagreeWords)]} ${alexResponse[randomArrayNumber(alexResponse)]} ${animalDescription[randomArrayNumber(animalDescription)]}`,
 						`${alexMatch[0]}? He loves ${alexLang[randomArrayNumber(alexLang)]}`,
 						`Ohh ${toUpperCaseAnswer(alexMatch[0])}? That guy speaks ${alexLang[randomArrayNumber(alexLang)]}`,
-						`You said ${toUpperCaseAnswer(alexMatch[0])}? He is ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
-						`Yeah, ${toUpperCaseAnswer(alexMatch[0])}, what about him? I think he's ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+						`You said ${toUpperCaseAnswer(alexMatch[0])}? He is ${animalDescription[randomArrayNumber(animalDescription)]}`,
+						`Yeah, ${toUpperCaseAnswer(alexMatch[0])}, what about him? I think he's ${animalDescription[randomArrayNumber(animalDescription)]}`,
 						`Oh I know him. His favorite movie, if I remember correctly is "${movieTitles[randomArrayNumber(movieTitles)]}"`,
 						`That Smurf. "${movieTitles[randomArrayNumber(movieTitles)]}" is his favorite movie, right?`,
 						`${toUpperCaseAnswer(alexMatch[0])}! ${unknownNamesMessages[randomArrayNumber(unknownNamesMessages)]}`,
@@ -395,10 +425,10 @@
 			else if(yarmanMatch.length !=0){
 				setTimeout(() => {
 					let answers = [
-						`${toUpperCaseAnswer(yarmanMatch[0])} is ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+						`${toUpperCaseAnswer(yarmanMatch[0])} is ${animalDescription[randomArrayNumber(animalDescription)]}`,
 						`${toUpperCaseAnswer(yarmanMatch[0])} likes ${yarmanActivities[randomArrayNumber(yarmanActivities)]}`,
 						`That smurf loves ${yarmanActivities[randomArrayNumber(yarmanActivities)]}`,
-						`${yarmanMessages[randomArrayNumber(yarmanMessages)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+						`${yarmanMessages[randomArrayNumber(yarmanMessages)]} ${animalDescription[randomArrayNumber(animalDescription)]}`,
 						`${toUpperCaseAnswer(yarmanMatch[0])} is so ${descriptionWords[randomArrayNumber(descriptionWords)]}, his favorite movie must be "${movieTitles[randomArrayNumber(movieTitles)]}"`,
 						`${toUpperCaseAnswer(yarmanMatch[0])}! ${unknownNamesMessages[randomArrayNumber(unknownNamesMessages)]}`,
 					]
@@ -453,6 +483,51 @@
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1200);
 			}
+
+		//КАТЕГОРИИ ПОЗНАНИЙ
+
+			//вода и морская тематика
+			else if(waterMatch.length != 0){
+				setTimeout(() => {
+
+					let answer = processTopics(waterMatch[0], natureDescription[randomArrayNumber(natureDescription)]);
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1300);
+			}
+			
+			//еда
+			else if(foodMatch.length != 0){
+				setTimeout(() => {
+
+					let answer = processTopics(foodMatch[0], foodDescription[randomArrayNumber(foodDescription)]);
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1300);
+			}
+
+			//животные
+			else if(animalMatch.length != 0){
+				setTimeout(() => {
+
+					let answer = processTopics(animalMatch[0], animalDescription[randomArrayNumber(animalDescription)]);
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1300);
+			}
+			//любовь и чувства
+			else if(loveMatch.length != 0){
+				setTimeout(() => {
+
+					let answer = processTopics(loveMatch[0], loveDescription[randomArrayNumber(loveDescription)]);
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1300);
+			}						
+			//природа
+			else if(natureMatch.length != 0){
+				setTimeout(() => {
+
+					let answer = processTopics(natureMatch[0], natureDescription[randomArrayNumber(natureDescription)]);
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1300);
+			}			
 
 		//ФОТОГРАФИИ И МОТИВАЦИОННЫЕ ЦИТАТЫ
 
