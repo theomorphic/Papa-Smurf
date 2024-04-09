@@ -143,6 +143,7 @@ const negativeWords =[
 	"midget",
 	"gnome",
 	"crazy",
+	"лох"
 
 ]
 export{negativeWords}
@@ -1271,11 +1272,11 @@ const matt = [
 	"отя",
 	"оття",
 	"matthew",
-	"matvey"
+	"matvey",
+	"мэтт"
 ]
 export{matt}
 const mattMessages = [
-	"ohh he loves the Winx fairies",
 	"he likes to watch anime",
 	"he does karate",
 	"he likes to stab in the back",

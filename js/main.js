@@ -76,6 +76,8 @@ import {waterWords as waterWords} from "./categories.js";
 import {animalWords as animalWords} from "./categories.js";
 import { loveWords as loveWords } from "./categories.js";
 //слова о любви и чувствах
+import {animeNames as animeNames } from "./categories.js";
+
 
 // Работа с фотографиями
 import {pictureWords as pictureWords} from "./response.js";
@@ -320,7 +322,10 @@ function processMessage(){
 				`${toUpperCaseAnswer(mattMatch[0])} is ${descriptionWords[randomArrayNumber(descriptionWords)]}!`,
 				`${toUpperCaseAnswer(mattMatch[0])} is ${descriptionWords[randomArrayNumber(descriptionWords)]} ${animalWords[randomArrayNumber(animalWords)]}!`,
 				`This guy? Yeah, ${toUpperCaseAnswer(mattMatch[0])} is ${descriptionWords[randomArrayNumber(descriptionWords)]}!`,
+				`${toUpperCaseAnswer(mattMatch[0])} watches ${animeNames[randomArrayNumber(animeNames)]}`,
 				`I remember him! ${toUpperCaseAnswer(mattMatch[0])} is ${descriptionWords[randomArrayNumber(descriptionWords)]}!`,	
+				`${toUpperCaseAnswer(mattMatch[0])} likes so much ${animeNames[randomArrayNumber(animeNames)]}`,
+			
 			]
 			
 			let answer = answers[randomArrayNumber(answers)];;

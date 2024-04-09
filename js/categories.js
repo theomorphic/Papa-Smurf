@@ -1111,3 +1111,14 @@ const movieTitles = [
 ]
 export{movieTitles}
 //список названий фильмов
+
+const animeNames = [
+	"Miraculous: Tales of Ladybug & Cat Noir",
+	"The Winx Fairies",
+	"Code Geass",
+	"Akame ga Kill!",
+	"Kakegurui",
+	"Mary and the Witch's Flower",
+	"Migi & Dali",
+]
+export{animeNames}
