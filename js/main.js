@@ -71,7 +71,7 @@ import { meStateWords as meStateWords } from "./response.js";
 
 
 // КАТЕГОРИИ РАЗНЫХ ПОНЯТИЙ
-import {foodNames as foodNames} from "./categories.js";
+import {foodNames as foodNames, movieTitles} from "./categories.js";
 //список названий различной еды
 import {waterWords as waterWords} from "./categories.js";
 //список слов про воду, океаны и т.д.
@@ -313,7 +313,9 @@ function processMessage(){
 				`Ohh ${toUpperCaseAnswer(alexMatch[0])}? That guy speaks ${alexLang[randomArrayNumber(alexLang)]}`,
 				`You said ${toUpperCaseAnswer(alexMatch[0])}? He is ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
 				`Yeah, ${toUpperCaseAnswer(alexMatch[0])}, what about him? I think he's ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
-
+				`Oh I know him. His favorite movie, if I remember correctly is ${movieTitles[randomArrayNumber(movieTitles)]}`,
+				`That Smurf. ${movieTitles[randomArrayNumber(movieTitles)]} is his favorite movie, right?`,
+			
 			]
 
 			let answer = answers[randomArrayNumber(answers)];;
@@ -334,6 +336,7 @@ function processMessage(){
 				`${toUpperCaseAnswer(mattMatch[0])} watches ${animeNames[randomArrayNumber(animeNames)]}`,
 				`I remember him! ${toUpperCaseAnswer(mattMatch[0])} is ${descriptionWords[randomArrayNumber(descriptionWords)]}!`,	
 				`${toUpperCaseAnswer(mattMatch[0])} likes so much ${animeNames[randomArrayNumber(animeNames)]}`,
+				`Oh I know him. His favorite movie, if I remember correctly is ${movieTitles[randomArrayNumber(movieTitles)]}`,
 			
 			]
 			
