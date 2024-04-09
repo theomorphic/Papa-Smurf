@@ -13,7 +13,8 @@ const alex = [
 	"lilkitchen",
 	"parfe",
 	"алексей",
-	"alyosha"
+	"alyosha",
+	"lex",
 ]
 export{alex}
 const alexResponse = [
