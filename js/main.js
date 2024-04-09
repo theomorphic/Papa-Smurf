@@ -31,7 +31,8 @@ import {beingOldForms as beingOldForms} from "./response.js";
 import{quotes as quotes} from "./response.js";
 import { quotesAsking as quotesAsking } from "./response.js";
 //длинные цитаты-наставления
-
+import { negativePersonalMessages as negativePersonalMessages } from "./response.js";
+//реакция на личные оскорбления
 
 // Слова для конструирования разборных предложений
 import {conjunction as conjunction} from "./response.js";
@@ -48,12 +49,20 @@ import { descriptionWords as descriptionWords } from "./response.js";
 //прилагательные и наречия для выражения своего мнения
 
 
-// Реакция на отдельные имена
+// Реакция на отдельные имена и обращения
 import {alex as alex} from "./response.js";
 import {alexResponse as alexResponse} from "./response.js";
 //реакция на Алёшу
 import { misha as misha } from "./response.js";
 //реакции на Мишу
+import { youWords as youWords } from "./response.js";
+//обращение напрямую к боту
+import { youPossessiveWords as youPossessiveWords } from "./response.js";
+//притяжательный падеж к боту
+import { meActionWords as meActionWords } from "./response.js";
+//первое лицо для бота к глаголу
+import { meStateWords as meStateWords } from "./response.js";
+//первое лицо бота с глаголом быть
 
 
 //Категории разных понятий
@@ -174,6 +183,7 @@ function processMessage(){
 	// параметр, который фильтрует знаки через regexp
 	let message = new String(user.message).toLowerCase().split(marks); //создает массив из сообщения
 	
+	const youMatch = youWords.filter(element => message.includes(element));
 	const oldMatch = beingOldForms.filter(element => message.includes(element));
 	const negativeMatch = negativeWords.filter(element => message.includes(element));
 	const pictureMatch = pictureWords.filter(element => message.includes(element));
@@ -190,9 +200,21 @@ function processMessage(){
 		return answer.charAt(0).toUpperCase() + answer.slice(1);
 	}
 	
+	if(youMatch.length != 0 && negativeMatch.length != 0){
+		setTimeout(() => {
+			let answers =[
+				`${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
+				`Did you call me ${negativeMatch[0]}? ${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`
+			]
+			
+			let answer = answers[randomArrayNumber(answers)];
 
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+
+		}, 1000);
+	}
 	//оскорбили и назвали стариком
-	if(oldMatch.length != 0 && negativeMatch.length != 0){
+	else if(oldMatch.length != 0 && negativeMatch.length != 0){
 		setTimeout(() => {
 			let answer = `${beingOldMessages[randomArrayNumber(beingOldMessages)]} ${conjunction[randomArrayNumber(conjunction)]} ${negativeMessages[randomArrayNumber(negativeMessages)]} `;
 			chatbotSendMessage(toUpperCaseAnswer(answer))
@@ -232,6 +254,7 @@ function processMessage(){
 
 		}, 1500);
 	}
+
 	//приветствие
 	else if(greetingsMatch.length != 0){
 		setTimeout(() => {

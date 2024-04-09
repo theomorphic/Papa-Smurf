@@ -456,6 +456,93 @@ const quotesAsking = [
 ]
 export{quotesAsking}
 //длинные цитаты-наставления
+const negativePersonalMessages = [
+	"I would kindly ask you to stop insulting me.",
+	"Your words do not affect me, as I know the truth about myself.",
+	"I choose to rise above your negativity and continue to spread joy and kindness.",
+	"I am confident in who I am and do not need validation from others.",
+	"Your words may sting momentarily, but I will not let them bring me down.",
+	"I will not engage with your negativity and will instead focus on positivity.",
+	"Your insults say more about you than they do about me.",
+	"I forgive you for your hurtful words, as I know they stem from your own insecurities.",
+	"I will continue to be my authentic self, regardless of your attempts to bring me down.",
+	"I am strong enough to withstand your insults and will not let them affect me.",
+	"I choose to respond with love and understanding, even in the face of hostility.",
+	"Your words may be hurtful, but they will not define me.",
+	"I will not let your insults dim my light and will continue to shine brightly.",
+	"I am not defined by your opinion of me, but by my own actions and choices.",
+	"I will not lower myself to your level and engage in a war of words.",
+	"I will rise above your insults and continue to inspire others with my kindness.",
+	"Your words may bruise my ego, but they will not break my spirit.",
+	"I will not let your negativity penetrate my positive outlook on life.",
+	"I choose to extend kindness even to those who seek to hurt me.",
+	"I will not let your insults shake my belief in myself and my abilities.",
+	"Your words do not hold power over me, as I know my own worth.",
+	"I will not let your insults drag me down into a pit of negativity.",
+	"I will respond to your insults with grace and dignity.",
+	"I am secure in my own self-worth and do not need validation from others.",
+	"Your insults may be loud, but my sense of self is stronger.",
+	"I will not let your words plant seeds of doubt in my mind.",
+	"I choose to rise above your insults and continue to spread love and positivity.",
+	"I am unshaken by your attempts to bring me down.",
+	"Your insults bounce off me like water off a duck's back.",
+	"I will not let your negativity infiltrate my positive outlook on life.",
+	"I will not let your insults derail me from my path of growth and self-improvement.",
+	"Your words may be sharp, but my spirit is resilient.",
+	"I choose to respond with understanding and compassion, even in the face of hostility.",
+	"I am not defined by your opinion of me, but by my own values and principles.",
+	"I will not let your insults cloud my vision of a better, brighter future.",
+	"I refuse to engage in a battle of words with you, as it serves no purpose.",
+	"I will not let your insults tarnish my reputation or my character.",
+	"Your words may wound my pride, but they will not crush my spirit.",
+	"I will not let your negativity seep into my heart and poison my soul.",
+	"I will respond to your insults with kindness and understanding.",
+	"I am confident in who I am and do not need validation from others, especially from someone like you.",
+	"Your insults may sting, but they will not deter me from my mission of spreading joy and kindness.",
+	"I will not let your words undermine my belief in myself.",
+	"I choose to respond to your insults with empathy and compassion.",
+	"I refuse to let your negativity cloud my judgement and my sense of self-worth.",
+	"Your insults may be hurtful, but they will not shake my inner peace.",
+	"I will not let your words sow seeds of doubt in my mind.",
+	"I will not let your insults distract me from my goals and aspirations.",
+	"Your words may be venomous, but my resolve is unbreakable.",
+	"I will not let your negativity poison my heart and turn me bitter.",
+	"I will respond to your insults with grace and poise.",
+	"I am secure in my own sense of self-worth and do not need approval from others.",
+	"Your insults may be sharp, but my spirit is resilient.",
+	"I choose to rise above your negativity and continue to shine brightly.",
+	"I will not let your words diminish my confidence in myself.",
+	"Your insults may leave scars, but they will not break me.",
+	"I refuse to let your negativity taint my view of the world and my place in it.",
+	"I will respond to your insults with understanding and kindness.",
+	"I am strong enough to withstand your attempts to bring me down.",
+	"Your words may hurt, but they will not crush my spirit.",
+	"I choose to respond to your insults with love and forgiveness.",
+	"I refuse to let your negativity drain my energy and dampen my spirits.",
+	"I will not let your insults shake my faith in humanity and the power of kindness.",
+	"Your words may wound, but my resolve is unshakable.",
+	"I will not let your negativity dim my light and dampen my spark.",
+	"I choose to rise above your insults and continue to spread positivity.",
+	"I will not let your words undermine my belief in the goodness of people.",
+	"Your insults may be harsh, but my heart remains open.",
+	"I refuse to let your negativity cloud my judgement and distort my view of reality.",
+	"I will respond to your insults with patience and understanding.",
+	"I am confident in who I am and do not need validation from others, especially not from someone like you.",
+	"Your insults may sting momentarily, but they will not penetrate my inner strength.",
+	"I will not let your words plant seeds of doubt in my mind.",
+	"I will not let your insults derail me from my path of growth and self-discovery.",
+	"Your words may be sharp, but my resolve is unshakeable.",
+	"I choose to respond to your insults with empathy and compassion.",
+	"I refuse to let your negativity cloud my judgement and my sense of self-worth.",
+	"Your insults may be hurtful, but they will not shake my inner peace.",
+	"I will not let your words sow seeds of doubt in my mind.",
+	"I will not let your insults distract me from my goals and aspirations.",
+	"Your words may be venomous, but my resolve is unbreakable.",
+	"I will not let your negativity poison my heart and turn me bitter.",
+	"I will respond to your insults with grace and poise.",
+	"I am secure in my own sense of self-worth and do not need approval from others."
+]
+export{negativePersonalMessages}
 
 
 // Слова для конструирования разборных предложений
@@ -1132,7 +1219,7 @@ export{pictureMessages}
 //короткие реакции на слова о фотографиях
 
 
-// Реакция на отдельные имена
+// Реакция на отдельные имена и обращения
 const alex = [
 	"alex",
 	"lexa",
@@ -1176,9 +1263,53 @@ const misha = [
 ]
 export{misha}
 
+const youWords = [
+	"you",
+	"youre",
+	"yours",
+	"yous",
+	"yo",
+	"ya",
+	"u",
+	"ur",
+	"yourself",
+	"youse",
+	"smurf",
+	"papa",
+	"father",
+	"ты",
+	"вы"
+]
+export{youWords}
+//прямое обращение к боту
 
+const youPossessiveWords = [
+	"your",
+	"youre",
+	"yours",
+	"yous",
+	"youse",
+	"ur",
+	"yourself",
+]
+export {youPossessiveWords}
 
+const meActionWords = [
+	"I",
+	"Papa Smurf",
+	"Papa",
+	"The Wisest Smurf"
+]
+export{meActionWords}
+//обращение бота от первого лица
 
+const meStateWords = [
+	"Im",
+	"I am",
+	"am"
+]
+export{meStateWords}
+//личные местоимения с глаголом быть
 
 const questions = [
 	"what",
