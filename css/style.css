@@ -16,9 +16,35 @@ body {
   font-size: 20px;
 }
 
+.rules-list {
+  display: none;
+}
+
+.rules-list.active {
+  display: block;
+  position: absolute;
+  top: 30%;
+  padding: 20px;
+  border-radius: 5px;
+  border: 2px solid #000;
+  background-color: #fff;
+  box-shadow: 0 10px 5px 0 rgba(0, 0, 0, 0.2666666667);
+  z-index: 1;
+}
+.rules-list.active ul li {
+  font-size: 20px;
+}
+.rules-list.active .picture-hint {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+.rules-list.active span {
+  color: #e4312a;
+}
+
 .container {
   background-color: #f1f5f7;
-  padding: 10px;
   border-radius: 5px;
   border: 2px solid #000;
   padding: 20px;
@@ -36,6 +62,7 @@ h1 {
   margin-bottom: 20px;
   background-color: #d3ebf3;
   border-radius: 3px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2666666667);
 }
 .media .bio {
   display: inherit;
@@ -46,10 +73,10 @@ h1 {
 }
 .media .pfp {
   margin: 10px;
-  border: 2px solid #000;
+  border: 3px solid #000;
   max-width: 150px;
   border-radius: 3px;
-  animation: userShake 1s ease infinite;
+  animation: userShake 2s ease infinite;
 }
 .media .name {
   margin: 10px;
@@ -59,21 +86,32 @@ h1 {
   font-weight: bold;
   margin-left: 10px;
 }
-.media .hints {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.media .rules {
+  display: inherit;
+  flex-direction: inherit;
+  justify-content: start;
   align-items: center;
-  margin-right: 2.6vw;
-  font-style: italic;
 }
-.media .hints span {
-  color: #e4312a;
+.media .rules .rules-img {
+  margin: 10px;
+  max-width: 100px;
+  animation: userShake3 1.5s ease infinite;
+  cursor: pointer;
 }
 
 @keyframes userShake {
   50% {
     transform: rotate(1deg);
+  }
+}
+@keyframes userShake2 {
+  50% {
+    transform: rotate(-1deg);
+  }
+}
+@keyframes userShake3 {
+  50% {
+    transform: scale(1) translate(0%, 2%);
   }
 }
 .chat-container {
@@ -103,6 +141,7 @@ a:hover {
   width: 90%;
   padding: 10px;
   border-radius: 3px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2666666667);
 }
 .input-group .btn {
   color: #fff;
@@ -110,6 +149,7 @@ a:hover {
   border: none;
   font-size: 17px;
   margin-left: 10px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2666666667);
 }
 .input-group .btn:hover {
   background-color: #e4312a;
@@ -142,9 +182,6 @@ a:hover {
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-  }
-  .container .hints {
-    display: none;
   }
   .container .btn {
     display: none;

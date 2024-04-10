@@ -181,7 +181,7 @@ const noIdeaMessages = [
 	"I don't understand you and it bothers me a lot",
 	"say it again",
 	"sometimes my brain betrays me. You say what?",
-	"my mind is in a haze, sorry",
+	"my mind is in a haze, sorry I cannot understand your message",
 	"latter, little Smurf",
 	"this is like a puzzle for me",
 	"don't give me riddles like this",

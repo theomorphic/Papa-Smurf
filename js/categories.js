@@ -1,6 +1,10 @@
 //КАТЕГОРИИ РАЗНЫХ ПОНЯТИЙ
 
 const foodNames = [
+	"berry", "berries",
+	"smurfberries", "smurfberry",
+	"sarsaparilla",
+	"butter",
 	"tea",
 	"estragon",
 	"liquorice",
@@ -1280,7 +1284,7 @@ const loveWords = [
 	"heartfelt",
 	"gleam", 
 	"obliging", "kindhearted", "crush", "tasting", "warmth", "voracity", "sweetheart", "name", "amour", "pure",
-	"intense", "passionate", "soulmate", "compassionate", "euphoria", "yearning", "longing", "rose", "beauty", "feel", "hold",
+	"intense", "passionate", "soulmate", "compassionate", "euphoria", "yearning", "longing", "rose", "beauty","hold",
 	"affectionate", "whisper", "giggle", "delight", "future", "trusting", "happiness", "kissing", "allure", "forever", "spark",
 	"connection", "intertwine", "softness", "intimate", "gaze", "cherished", "wish", "yearn", "pleasure", "glimpse", "rainbow",
 	"stars", "moon", "sky", "waves", "forever", "comfort", "date", "promise", "princess", "marvel", "heartfelt", "date",
@@ -2148,6 +2152,9 @@ const langNames = [
 	"rarotongan", 
 	"pitkern", 
 	"hawaiian", 
+	"flemish",
+	"сhechen",
+	"чеченский",
 	
 ]
 export{langNames}

@@ -3,6 +3,7 @@
 	const sendBtn = document.getElementById("sendBtn");
 	const input = document.getElementById("input");
 	const chatContainer = document.getElementById("chatContainer");
+	const rulesBtn = document.getElementById("rulesBtn");
 
 	const user = {message:"", counter:0};
 	//буферная зона для сообщения от пользователя
@@ -190,7 +191,7 @@
 	}
 
 
-//РАБОТА СО СПОСОБАМИ ОТПРАВКИ СООБЩЕНИЯ
+//РАБОТА СО ИНТЕРФЕЙСОМ
 
 	sendBtn.addEventListener("click", clickSendBtn);
 	//добавляем кнопке функцию отправки готового сообщения от пользователя
@@ -198,10 +199,10 @@
 	function clickSendBtn(){
 		if(input.value == ""){
 			alert("Little Smurf, looks like you've forgot to type a text")
+			rulesBtn.style.display = "";
 		}else{
 			let messageText =  input.value.trim();
 			user.message = messageText;
-			// input.value = messageText;
 			sendMessage(messageText);
 			input.value = "";
 
@@ -211,8 +212,6 @@
 	};
 	//сама функция отправки сообщения от пользователя
 
-
-
 	input.addEventListener("keypress", function(e){
 
 		if(e.which == 13){
@@ -221,6 +220,16 @@
 	});
 	//ивент для нажатия на энтер, это 13 клавиша
 	//он поставлен на текстовое поле, а не на кнопку, как я изначально пытался
+
+	rulesBtn.addEventListener("click", showRules);
+	//добавляем иконке правил функционал
+
+	function showRules(){
+		let listOfRules = document.getElementById("rulesList");
+		listOfRules.classList.toggle("active")
+	}
+	//функция показа списка правил
+
 
 //ГЕНЕРАЦИЯ СООБЩЕНИЯ ЧАТ БОТА: ИЗВИЛИНЫ
 
@@ -333,10 +342,10 @@
 				setTimeout(() => {
 					let answers =[
 						`${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
-						`You said to me "${negativeMatch[0]}"? ${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
-						`${disagreeWords[randomArrayNumber(disagreeWords)]}, you said to me "${negativeMatch[0]}"? ${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
-						`${negativeMatch[0]}, huh? ${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
-						`So "${negativeMatch[0]}", right? That's how you talk to me. ${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
+						`Did you call me this bad word? ${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
+						`${disagreeWords[randomArrayNumber(disagreeWords)]}, you called me such a disgusting word. ${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
+						`Don't say that to me!${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
+						`Dear Smurf, this word is too bad for you. That's how you talk to elders? ${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
 						
 					]
 					
@@ -383,6 +392,24 @@
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 
 				}, 1500);
+			}
+			//просто сказали слово "rude" лично Папе
+			else if(message.includes("rude") && youMatch.length != 0){
+				setTimeout(() => {
+
+					let answer = `${disagreeWords[randomArrayNumber(disagreeWords)]}, don't call me rude. It's actually rude of you!`
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+					
+				}, 1400);
+			}
+			//просто сказали "rude"
+			else if(message.includes("rude")){
+				setTimeout(() => {
+
+					let answer = `${disagreeWords[randomArrayNumber(disagreeWords)]}, rudness is against smurfness!`
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+					
+				}, 1400);
 			}
 
 		//ПРИВЕТСТВИЕ И ПРОЩАНИЕ
@@ -503,8 +530,6 @@
 
 					let answers =[
 						`${agreeWords[randomArrayNumber(agreeWords)]}`,
-						`${agreeWords[randomArrayNumber(agreeWords)]}, ${binderPhrases[randomArrayNumber(binderPhrases)]} ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
-						`${agreeWords[randomArrayNumber(agreeWords)]}, also ${quotes[randomArrayNumber(quotes)]}`,
 						`${agreeWords[randomArrayNumber(agreeWords)]}. ${toUpperCaseAnswer(noIdeaMessages[randomArrayNumber(noIdeaMessages)])}`,
 						`${agreeWords[randomArrayNumber(agreeWords)]}, but you sound like ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
 
@@ -522,7 +547,6 @@
 						`${disagreeWords[randomArrayNumber(disagreeWords)]}`,
 						`${agreeWords[randomArrayNumber(agreeWords)]}`,
 						`${agreeWords[randomArrayNumber(agreeWords)]}. ${toUpperCaseAnswer(noIdeaMessages[randomArrayNumber(noIdeaMessages)])}`,
-						`${disagreeWords[randomArrayNumber(disagreeWords)]}, also ${quotes[randomArrayNumber(quotes)]}`,
 						`${disagreeWords[randomArrayNumber(disagreeWords)]}. ${toUpperCaseAnswer(noIdeaMessages[randomArrayNumber(noIdeaMessages)])}`,
 						`You strike me as ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
 
@@ -531,24 +555,6 @@
 					let answer = answers[randomArrayNumber(answers)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1400);
-			}
-
-		//ВОПРОСЫ
-
-			else if(questionsMatch.length != 0){
-				setTimeout(() => {
-
-					let answers = [
-						`${generalAnswers[randomArrayNumber(generalAnswers)]}`,
-						`${generalAnswers[randomArrayNumber(generalAnswers)]} ${conjunction[randomArrayNumber(conjunction)]} ${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
-						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
-						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]} ${conjunction[randomArrayNumber(conjunction)]} ${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
-
-					]
-					
-					let answer = answers[randomArrayNumber(answers)];
-					chatbotSendMessage(toUpperCaseAnswer(answer))
-				}, 1200);
 			}
 
 		//КАТЕГОРИИ ПОЗНАНИЙ
@@ -563,6 +569,19 @@
 			}
 			
 			//еда
+				//любимые блюда Папы
+			else if(youMatch.length != 0 && foodMatch.length != 0){
+				setTimeout(() => {
+
+					
+					let answer = `I like ${foodMatch[0]}. But my favorite delicacy are Sarsaparilla and Smurfberries`;
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+
+					
+
+				}, 1300);
+			}
+			//разгоны про еду
 			else if(foodMatch.length != 0){
 				setTimeout(() => {
 
@@ -596,6 +615,22 @@
 				}, 1300);
 			}	
 			//музыка
+				//общий вопрос про музыку лично Папе
+			else if( message.includes("music") || message.includes("genre") || message.includes("genres")){
+				setTimeout(() => {
+
+					let answers = [
+						`Oh, talking about music. Papa Smurf thinks that he likes instrumental, blues and ${musicGenres[randomArrayNumber(musicGenres)]}`,
+						`I like blues. ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} and ${musicGenres[randomArrayNumber(musicGenres)]} are ${musicDescription[randomArrayNumber(musicDescription)]}. ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} is ${musicDescription[randomArrayNumber(musicDescription)]}`,
+					]
+						
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+						
+				}, 1300);
+			}
+
+				//разгоны про жанры
 			else if(musicMatch.length != 0){
 				setTimeout(() => {
 
@@ -634,7 +669,25 @@
 						chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1300);
 	
-			}					
+			}	
+
+		//ВОПРОСЫ
+
+		else if(questionsMatch.length != 0){
+			setTimeout(() => {
+
+				let answers = [
+					`${generalAnswers[randomArrayNumber(generalAnswers)]}`,
+					`${generalAnswers[randomArrayNumber(generalAnswers)]} ${conjunction[randomArrayNumber(conjunction)]} ${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+					`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
+					`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]} ${conjunction[randomArrayNumber(conjunction)]} ${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+
+				]
+				
+				let answer = answers[randomArrayNumber(answers)];
+				chatbotSendMessage(toUpperCaseAnswer(answer))
+			}, 1200);
+		}					
 
 		//ФОТОГРАФИИ И МОТИВАЦИОННЫЕ ЦИТАТЫ
 
@@ -678,7 +731,7 @@
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${musicQuestions[randomArrayNumber(musicQuestions)]}`,
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${smalltalk[randomArrayNumber(smalltalk)]}`,
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${smalltalk[randomArrayNumber(smalltalk)]}`,
-						`${binderPhrases[randomArrayNumber(binderPhrases)]}, ${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${smalltalk[randomArrayNumber(smalltalk)]}`,
+						`${binderPhrases[randomArrayNumber(binderPhrases)]} ${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${smalltalk[randomArrayNumber(smalltalk)]}`,
 
 					]
 
