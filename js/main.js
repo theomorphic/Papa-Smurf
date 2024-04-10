@@ -716,6 +716,16 @@
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1200);
 			}
+		//ОСОБЫЕ УПОМИНАНИЯ
+			else if(message.includes("grumpy") || message.includes("grump") ){
+
+				setTimeout(() => {
+					let answer = `Grumpy? My rude brother. He lives <a href='https://theomorphic.github.io/Grumpy' target='_blank'>right here</a>`;
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);
+
+				
+			}
 
 		//АБСОЛЮТНОЕ НЕПОНИМАНИЕ
 
