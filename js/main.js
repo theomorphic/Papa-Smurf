@@ -84,26 +84,32 @@
 
 // КАТЕГОРИИ РАЗНЫХ ПОНЯТИЙ
 	import {foodNames as foodNames, movieTitles} from "./categories.js";
-	//список названий различной еды
 	import { foodDescription as foodDescription } from "./categories.js";
-	//описание еды
+	import { foodQuestions as foodQuestions } from "./categories.js";
+	//описание еды, реакции и вопросы
 	import {waterWords as waterWords} from "./categories.js";
+	import { waterQuestions as waterQuestions } from "./categories.js";
 	//список слов про воду, океаны и т.д.
 	import {animalWords as animalWords} from "./categories.js";
-	//список животных
-	import { animalDescription as animalDescription } from "./categories.js";
+	import {animalDescription as animalDescription} from "./categories.js";
+	import { animalQuestions as animalQuestions } from "./categories.js";
 	//описание животных
 	import { loveWords as loveWords } from "./categories.js";
-	//слова о любви и чувствах
 	import { loveDescription as loveDescription } from "./categories.js";
+	import { loveQuestions as loveQuestions } from "./categories.js";
 	//описание любви и чувств
 	import { natureWords as natureWords } from "./categories.js";
-	//слова о природе
 	import { natureDescription as natureDescription } from "./categories.js";
+	import { natureQuestions as natureQuestions } from "./categories.js";
 	//описание природы
 	import { musicGenres as musicGenres } from "./categories.js";
 	import { musicDescription as musicDescription } from "./categories.js";
+	import { musicQuestions as musicQuestions } from "./categories.js";
 	//музыкальные жанры и реакция на них
+	import { langNames as langNames } from "./categories.js";
+	import { langNamesMessages as langNamesMessages } from "./categories.js";
+	import { langNamesQuestions as langNamesQuestions } from "./categories.js";
+	//языки и лингвистика
 
 // РАБОТА С ФОТОГРАФИЯМИ
 	import {pictureWords as pictureWords} from "./response.js";
@@ -218,51 +224,51 @@
 
 //ГЕНЕРАЦИЯ СООБЩЕНИЯ ЧАТ БОТА: ИЗВИЛИНЫ
 
-	function processTopics(topic, description){
+	function processTopics(topic, description, question){
 
 		let answers = [
 				`About ${topic}, I find it pretty ${description}`,
-				`${topic}? Yeah, it's ${description} for my taste`,
-				`Are you talking about ${topic}? That is so ${description}`,
+				`${topic}? Yeah, it's ${description} for my taste. ${question}`,
+				`Are you talking about ${topic}? That is so ${description}. ${question}`,
 				`Funny, you mentioned ${topic}, I see it as something ${description}`,
 				`${description}. You think it applies to ${topic}?`,
 				`You know what? ${toUpperCaseAnswer(topic)} is just ${description}. I needed to say it`,
-				`In my perspective, ${topic} is ${description}`,
+				`In my perspective, ${topic} is ${description}. ${question}`,
 				`To me, ${topic} is simply ${description}. Do you agree?`,
 				`It's my belief that ${topic} is ${description}`,
 				`${topic} is simply ${description} in my eyes`,
 				`Personally, I find ${topic} ${description}`,
 				`One adjective I would use for ${topic} is ${description}`,
-				`From my standpoint, ${topic} is ${description}`,
+				`From my standpoint, ${topic} is ${description}. ${question}`,
 				`I perceive ${topic} as ${description}. What about you?`,
 				`Expressing my opinion about ${topic}, I would describe it as ${description}`,
-				`I find ${topic} to be ${description}`,
-				`To me, ${topic} appears ${description}`,
+				`I find ${topic} to be ${description}. ${question}`,
+				`To me, ${topic} appears ${description}. ${question}`,
 				`It seems to me that ${topic} is ${description}. It should be ${description}`,
-				`When it comes to ${topic}, I see it as ${description}`,
-				`My take on ${topic} is ${description}`,
+				`When it comes to ${topic}, I see it as ${description}. ${question}`,
+				`My take on ${topic} is ${description}. ${question}`,
 				`My stance on ${topic} is ${description}, agree?`,
-				`I reckon ${topic} is ${description}`,
-				`It strikes me that ${topic} is ${description}`,
-				`I regard ${topic} as ${description}`,
+				`I reckon ${topic} is ${description}. ${question}`,
+				`It strikes me that ${topic} is ${description}, right? ${question}`,
+				`I regard ${topic} as ${description}. ${question}`,
 				`I opine that ${topic} is ${description}. What do you think here?`,
-				`In my estimation, ${topic} is ${description}`,
-				`As far as I'm concerned, ${topic} is ${description}`,
-				`My position on ${topic} is that it is ${description}`,
-				`In my judgment, ${topic} is ${description}`,
+				`In my estimation, ${topic} is ${description}. ${question}`,
+				`As far as I'm concerned, ${topic} is ${description}. ${question}`,
+				`My position on ${topic} is that it is ${description}. ${question}`,
+				`In my judgment, ${topic} is ${description}. ${question}`,
 				`My perspective leads me to see ${topic} as ${description}`,
-				`My sense of ${topic} is ${description}`,
-				`I understand ${topic} as ${description}`,
-				`I am convinced that ${topic} is ${description}`,
-				`It is my belief that ${topic} is ${description}`,
-				`I interpret ${topic} as something ${description}`,
+				`My sense of ${topic} is ${description}. ${question}`,
+				`I understand ${topic} as ${description}. ${question}`,
+				`I am convinced that ${topic} is ${description}. ${question}`,
+				`It is my belief that ${topic} is ${description}. ${question}`,
+				`I interpret ${topic} as something ${description}. ${question}`,
 				`To my mind, ${topic} falls under the category of ${description}`,
 				`I categorize ${topic} as ${description}. And I'm not joking here`,
-				`In a nutshell, ${topic} is ${description}`,
-				`It is my considered view that ${topic} is ${description}`,
-				`It is my belief that ${topic} can be defined as ${description}`,
-				`I put ${topic} in the category of ${description}`,
-				`My considered opinion is that ${topic} is ${description}`,
+				`In a nutshell, ${topic} is ${description}. ${question}`,
+				`It is my considered view that ${topic} is ${description}. ${question}`,
+				`It is my belief that ${topic} can be defined as ${description}. ${question}`,
+				`I put ${topic} in the category of ${description}. ${question}`,
+				`My considered opinion is that ${topic} is ${description}. But I'm not sure. ${question}`,
 
 
 			]
@@ -312,6 +318,7 @@
 		const loveMatch = loveWords.filter(element => message.includes(element));
 		const natureMatch = natureWords.filter(element => message.includes(element));
 		const musicMatch = musicGenres.filter(element => message.includes(element));
+		const langMatch = langNames.filter(element => message.includes(element));
 
 
 		//фотографии и мотивационные цитаты
@@ -398,6 +405,7 @@
 						`${toUpperCaseAnswer(unknownNameMatch[0])}! This name is ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
 						`Oh it's ${toUpperCaseAnswer(unknownNameMatch[0])}. ${unknownNamesMessages[randomArrayNumber(unknownNamesMessages)]}`,
 						`${toUpperCaseAnswer(unknownNameMatch[0])}! ${unknownNamesMessages[randomArrayNumber(unknownNamesMessages)]}`,
+						`${toUpperCaseAnswer(unknownNameMatch[0])}? You sound more like ${toUpperCaseAnswer(unknownNames[randomArrayNumber(unknownNames)])}. Don't take it to heart, Papa Smurf could be wrong`,
 
 					]
 
@@ -437,7 +445,8 @@
 						`Oh I know him. His favorite movie, if I remember correctly is "${movieTitles[randomArrayNumber(movieTitles)]}"`,
 						`That Smurf. "${movieTitles[randomArrayNumber(movieTitles)]}" is his favorite movie, right?`,
 						`${toUpperCaseAnswer(alexMatch[0])}! ${unknownNamesMessages[randomArrayNumber(unknownNamesMessages)]}`,
-					
+						`${toUpperCaseAnswer(alexMatch[0])}? ${musicQuestions[randomArrayNumber(musicQuestions)]}`,
+						
 					]
 
 					let answer = answers[randomArrayNumber(answers)];
@@ -477,6 +486,7 @@
 						`${toUpperCaseAnswer(yarmanMatch[0])} is so ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}, his favorite movie must be "${movieTitles[randomArrayNumber(movieTitles)]}"`,
 						`${toUpperCaseAnswer(yarmanMatch[0])}, I would say he's ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
 						`${toUpperCaseAnswer(yarmanMatch[0])}! ${unknownNamesMessages[randomArrayNumber(unknownNamesMessages)]}`,
+						`${toUpperCaseAnswer(yarmanMatch[0])}? ${musicQuestions[randomArrayNumber(musicQuestions)]}`,
 					]
 					
 					let answer = answers[randomArrayNumber(answers)];
@@ -547,7 +557,7 @@
 			else if(waterMatch.length != 0){
 				setTimeout(() => {
 
-					let answer = processTopics(waterMatch[0], natureDescription[randomArrayNumber(natureDescription)]);
+					let answer = processTopics(waterMatch[0], natureDescription[randomArrayNumber(natureDescription)], waterQuestions[randomArrayNumber(waterQuestions)]);
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1300);
 			}
@@ -556,7 +566,7 @@
 			else if(foodMatch.length != 0){
 				setTimeout(() => {
 
-					let answer = processTopics(foodMatch[0], foodDescription[randomArrayNumber(foodDescription)]);
+					let answer = processTopics(foodMatch[0], foodDescription[randomArrayNumber(foodDescription)], foodQuestions[randomArrayNumber(foodQuestions)]);
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1300);
 			}
@@ -565,7 +575,7 @@
 			else if(animalMatch.length != 0){
 				setTimeout(() => {
 
-					let answer = processTopics(animalMatch[0], animalDescription[randomArrayNumber(animalDescription)]);
+					let answer = processTopics(animalMatch[0], animalDescription[randomArrayNumber(animalDescription)], animalQuestions[randomArrayNumber(animalQuestions)]);
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1300);
 			}
@@ -573,7 +583,7 @@
 			else if(loveMatch.length != 0){
 				setTimeout(() => {
 
-					let answer = processTopics(loveMatch[0], loveDescription[randomArrayNumber(loveDescription)]);
+					let answer = processTopics(loveMatch[0], loveDescription[randomArrayNumber(loveDescription)], loveQuestions[randomArrayNumber(loveQuestions)]);
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1300);
 			}						
@@ -581,7 +591,7 @@
 			else if(natureMatch.length != 0){
 				setTimeout(() => {
 
-					let answer = processTopics(natureMatch[0], natureDescription[randomArrayNumber(natureDescription)]);
+					let answer = processTopics(natureMatch[0], natureDescription[randomArrayNumber(natureDescription)], natureQuestions[randomArrayNumber(natureQuestions)]);
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1300);
 			}	
@@ -589,10 +599,42 @@
 			else if(musicMatch.length != 0){
 				setTimeout(() => {
 
-					let answer = processTopics(musicMatch[0], musicDescription[randomArrayNumber(musicDescription)]);
+					let answer = processTopics(musicMatch[0], musicDescription[randomArrayNumber(musicDescription)], musicQuestions[randomArrayNumber(musicQuestions)]);
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1300);
-			}						
+			}	
+			//языки и лингвистика лично у Папы Смурфа
+			else if(youMatch.length != 0 && langMatch.length != 0){
+				setTimeout(() => {
+
+					if(langMatch[0] == "english"){
+			
+						let answer = `${agreeWords[randomArrayNumber(agreeWords)]}, I speak English`;
+						chatbotSendMessage(toUpperCaseAnswer(answer))
+					}
+					else if(langMatch[0] != "english"){
+						
+						let answer = `${toUpperCaseAnswer(langMatch[0])}? ${langNamesMessages[randomArrayNumber(langNamesMessages)]}`;
+						chatbotSendMessage(toUpperCaseAnswer(answer))
+
+					}
+
+				}, 1300);
+			}
+			//просто разговоры о лингвистике
+			else if(langMatch.length != 0){
+
+				setTimeout(() => {
+					let answers = [
+						`${toUpperCaseAnswer(langMatch[0])}? ${langNamesQuestions[randomArrayNumber(langNamesQuestions)]}`,
+						processTopics(toUpperCaseAnswer(langMatch[0]), musicDescription[randomArrayNumber(musicDescription)], langNamesQuestions[randomArrayNumber(langNamesQuestions)]),
+						]
+		
+						let answer = answers[randomArrayNumber(answers)];
+						chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1300);
+	
+			}					
 
 		//ФОТОГРАФИИ И МОТИВАЦИОННЫЕ ЦИТАТЫ
 
@@ -633,7 +675,7 @@
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
-						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${toUpperCaseAnswer(quotes[randomArrayNumber(quotes)])}`,
+						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${musicQuestions[randomArrayNumber(musicQuestions)]}`,
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${smalltalk[randomArrayNumber(smalltalk)]}`,
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${smalltalk[randomArrayNumber(smalltalk)]}`,
 						`${binderPhrases[randomArrayNumber(binderPhrases)]}, ${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${smalltalk[randomArrayNumber(smalltalk)]}`,
