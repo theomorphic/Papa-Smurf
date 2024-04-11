@@ -355,9 +355,12 @@
 		//создает массив из сообщения
 		
 		//ТОЧКИ СОПРИКОСНОВЕНИЯ, СОВПАДЕНИЯ С ИЗВЕСТНЫМИ ДАННЫМИ
-		
-		//оскорбления, старость,грубость	
+
+		//личный счёт
 		const youMatch = youWords.filter(element => message.includes(element));
+		const youPossessiveMatch = youPossessiveWords.filter(element => message.includes(element));
+
+		//оскорбления, старость,грубость	
 		const oldMatch = beingOldForms.filter(element => message.includes(element));
 		const negativeMatch = negativeWords.filter(element => message.includes(element));
 		
@@ -714,7 +717,7 @@
 		
 			//музыка
 			//общий вопрос про музыку лично Папе
-			else if( message.includes("music") || message.includes("genre") || message.includes("genres")){
+			else if(message.includes("music") && (youPossessiveMatch.length != 0 || youMatch.length != 0)){
 				setTimeout(() => {
 
 					let answers = [
@@ -727,11 +730,37 @@
 							
 				}, 1300);
 			}
+			else if(message.includes("music")){
+				setTimeout(() => {
+
+					let answers = [
+						`Oh, talking about music. Papa Smurf thinks that he likes instrumental, blues and ${musicGenres[randomArrayNumber(musicGenres)]}`,
+						`Music! ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} is so ${musicDescription[randomArrayNumber(musicDescription)]}`,
+						`Music! ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} is so ${musicDescription[randomArrayNumber(musicDescription)]}`,
+					]
+							
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+							
+				}, 1300);
+			}
 				//разгоны про жанры
 			else if(musicMatch.length != 0){
 				setTimeout(() => {
 	
 					let answer = processTopics(musicMatch[0], musicDescription[randomArrayNumber(musicDescription)], musicQuestions[randomArrayNumber(musicQuestions)]);
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1300);
+			}
+			else if(message.includes("music") && (message.includes("genre") || message.includes("genres"))){
+				setTimeout(() => {
+	
+					let answers = [
+						`Music genre? Hmm, let me think, ${musicGenres[randomArrayNumber(musicGenres)]} is ${musicDescription[randomArrayNumber(musicDescription)]}`,
+						`${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} and ${musicGenres[randomArrayNumber(musicGenres)]} are ${musicDescription[randomArrayNumber(musicDescription)]}. ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} is ${musicDescription[randomArrayNumber(musicDescription)]}`,
+					]
+							
+					let answer = answers[randomArrayNumber(answers)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1300);
 			}
@@ -752,10 +781,23 @@
 							
 				}, 1300);
 			}
-			else if(youPossessiveWords.length != 0 && movieWordsMatch.length != 0){
+			else if(youPossessiveMatch.length != 0 && movieWordsMatch.length != 0){
 				setTimeout(() => {
 
 					let answer = "I like The Smurfs. What else did you expect, little Smurf?";	
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+							
+				}, 1300);
+			}
+			else if(movieWordsMatch.length != 0 && (message.includes("genre") || message.includes("genres"))){
+				setTimeout(() => {
+
+					let answers = [
+					`Movie genre? Well, I don't know much, I like just movies. ${movieTitles[randomArrayNumber(movieTitles)]} is really ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
+					`Sorry, my wisdom does not extend to movie genres. But I do know some music genres! ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} is ${musicDescription[randomArrayNumber(musicDescription)]}`
+					]
+					let answer = answers[randomArrayNumber(answers)];
+
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 							
 				}, 1300);
@@ -778,6 +820,20 @@
 							
 				}, 1300);
 			}
+			else if(message.includes("genre") || message.includes("genres")){
+				setTimeout(() => {
+
+					let answers = [
+					`Movie or music genre?`,
+					`Genre? Little Smurf, are we talking about music or moves?`
+					]
+					let answer = answers[randomArrayNumber(answers)];
+
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+							
+				}, 1300);
+			}
+			
 
 		//ВОПРОСЫ
 
