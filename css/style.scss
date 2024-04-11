@@ -218,6 +218,18 @@ a{
 		justify-content: center;
 		height: 100vh;
 		padding: 15px;
+
+		.media{
+			.pfp{
+				max-width: 100px;
+
+			}
+
+			.rules-img{
+				max-width: 70px;
+
+			}
+		}
 		
 
 		.btn{

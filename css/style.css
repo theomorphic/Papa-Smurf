@@ -184,6 +184,12 @@ a {
     height: 100vh;
     padding: 15px;
   }
+  .container .media .pfp {
+    max-width: 100px;
+  }
+  .container .media .rules-img {
+    max-width: 70px;
+  }
   .container .btn {
     display: none;
   }
