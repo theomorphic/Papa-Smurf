@@ -735,8 +735,11 @@
 
 					let answers = [
 						`Oh, talking about music. Papa Smurf thinks that he likes instrumental, blues and ${musicGenres[randomArrayNumber(musicGenres)]}`,
+						`You strike me as a ${musicGenres[randomArrayNumber(musicGenres)]} lover. Am I right?`,
+						`Any specific genre you do you like to listen to? ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])}?`,
 						`Music! ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} is so ${musicDescription[randomArrayNumber(musicDescription)]}`,
-						`Music! ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} is so ${musicDescription[randomArrayNumber(musicDescription)]}`,
+						`${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])}?`,
+						`${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} is very ${musicDescription[randomArrayNumber(musicDescription)]}`,
 					]
 							
 					let answer = answers[randomArrayNumber(answers)];
