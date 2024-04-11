@@ -2058,6 +2058,18 @@ const movieTitles = [
 	"The Wolf of Wall Street",
 ]
 export{movieTitles}
+const movieWords = [
+	"movie","movies",
+	"film","films",
+	"cinema","cinemas",
+	"кино","cinéma",
+	"фильм","фильмы"
+]
+export{movieWords}
+const movieMessages = [
+
+]
+export {movieMessages}
 //список названий фильмов
 
 const langNames = [

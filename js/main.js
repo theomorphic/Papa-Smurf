@@ -84,7 +84,7 @@
 
 
 // КАТЕГОРИИ РАЗНЫХ ПОНЯТИЙ
-	import {foodNames as foodNames, movieTitles} from "./categories.js";
+	import {foodNames as foodNames} from "./categories.js";
 	import { foodDescription as foodDescription } from "./categories.js";
 	import { foodQuestions as foodQuestions } from "./categories.js";
 	//описание еды, реакции и вопросы
@@ -111,6 +111,8 @@
 	import { langNamesMessages as langNamesMessages } from "./categories.js";
 	import { langNamesQuestions as langNamesQuestions } from "./categories.js";
 	//языки и лингвистика
+	import { movieTitles as movieTitles } from "./categories.js";
+	import { movieWords as movieWords } from "./categories.js";
 
 // РАБОТА С ФОТОГРАФИЯМИ
 	import {pictureWords as pictureWords} from "./response.js";
@@ -287,6 +289,62 @@
 	}
 	//функция формирования мнения по определенной тематике
 
+	function discussingMovies(movie, opinion){
+
+		let answers = [
+			`Hmm, I found ${movie} quite intriguing.`,
+			`I must say, ${movie} was simply fantastic!`,
+			`I think ${movie} deserves all the awards.`,
+			`I was pleasantly surprised by ${movie}.`,
+			`I didn't expect the ${movie} to be that good.`,
+			`${movie} really touched my heart.`,
+			`I believe everyone should watch ${movie}.`,
+			`What an emotional journey that ${movie} was.`,
+			`I'm still thinking about that ${movie}. It's ${opinion}.`,
+			`The actors in this ${movie} were exceptional.`,
+			`The soundtrack of ${movie} was breathtaking.`,
+			`I was completely captivated by ${movie}.`,
+			`What an outstanding performance in ${movie}, ${opinion}!`,
+			`The visual effects in ${movie} were mind-blowing.`,
+			`I laughed and cried throughout ${movie}.`,
+			`${movie} is a must-watch for everyone.`,
+			`I can't stop recommending ${opinion} ${movie} to everyone!`,
+			`The storyline of ${movie} was so well-crafted.`,
+			`The dialogues in ${movie} were so powerful.`,
+			`What a masterpiece ${movie} is!`,
+			`I was on the edge of my seat watching ${movie}.`,
+			`The cinematography in ${movie} was stunning.`,
+			`After watching ${movie}, I feel so inspired.`,
+			`I can't get over how ${opinion} ${movie} was.`,
+			`The message conveyed in ${movie} was profound.`,
+			`I want to relive the experience of ${movie}.`,
+			`The cast of ${movie} was perfectly chosen.`,
+			`I have a newfound appreciation for ${movie}.`,
+			`I'll always remember the impact of ${movie}.`,
+			`The setting of ${movie} was so ${opinion}.`,
+			`The climax of ${movie} was so ${opinion}.`,
+			`I'm in awe of the creativity in ${movie}.`,
+			`I couldn't take my eyes off the screen during ${movie}.`,
+			`Every scene in ${movie} was filled with emotion.`,
+			`The transitions in ${movie} were seamless.`,
+			`The ending of ${movie} left me speechless.`,
+			`My favorite part of ${movie} was ${opinion}`,
+			`I was so invested in the characters of ${movie}.`,
+			`The humor in ${movie} was well-placed.`,
+			`The suspense in ${movie} kept me hooked.`,
+			`I connected with the themes of ${movie} deeply.`,
+			`I wish I could watch ${movie} for the first time again.`,
+			`The sound design of ${movie} was superb.`,
+			`${movie} will definitely stay with me for a long time.`,
+			`I felt a range of emotions while watching ${movie}, ${opinion}!`,
+			`I have to say, that ${movie} was truly unforgettable.`,
+		]
+
+		let answer = answers[randomArrayNumber(answers)];
+		return answer;
+	}
+	//функция для выражения мнения про кино
+
 	function processMessage(){
 
 		//ФИЛЬТР ДЛЯ СООБЩЕНИЯ ПОЛЬЗОВАТЕЛЯ
@@ -326,9 +384,11 @@
 		const animalMatch = animalWords.filter(element => message.includes(element));
 		const loveMatch = loveWords.filter(element => message.includes(element));
 		const natureMatch = natureWords.filter(element => message.includes(element));
-		const musicMatch = musicGenres.filter(element => message.includes(element));
 		const langMatch = langNames.filter(element => message.includes(element));
 
+		//искусство: кино, музыка
+		const musicMatch = musicGenres.filter(element => message.includes(element));
+		const movieWordsMatch = movieWords.filter(element => message.includes(element));
 
 		//фотографии и мотивационные цитаты
 		const pictureMatch = pictureWords.filter(element => message.includes(element));
@@ -614,30 +674,7 @@
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1300);
 			}	
-			//музыка
-				//общий вопрос про музыку лично Папе
-			else if( message.includes("music") || message.includes("genre") || message.includes("genres")){
-				setTimeout(() => {
-
-					let answers = [
-						`Oh, talking about music. Papa Smurf thinks that he likes instrumental, blues and ${musicGenres[randomArrayNumber(musicGenres)]}`,
-						`I like blues. ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} and ${musicGenres[randomArrayNumber(musicGenres)]} are ${musicDescription[randomArrayNumber(musicDescription)]}. ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} is ${musicDescription[randomArrayNumber(musicDescription)]}`,
-					]
-						
-					let answer = answers[randomArrayNumber(answers)];
-					chatbotSendMessage(toUpperCaseAnswer(answer))
-						
-				}, 1300);
-			}
-
-				//разгоны про жанры
-			else if(musicMatch.length != 0){
-				setTimeout(() => {
-
-					let answer = processTopics(musicMatch[0], musicDescription[randomArrayNumber(musicDescription)], musicQuestions[randomArrayNumber(musicQuestions)]);
-					chatbotSendMessage(toUpperCaseAnswer(answer))
-				}, 1300);
-			}	
+			
 			//языки и лингвистика лично у Папы Смурфа
 			else if(youMatch.length != 0 && langMatch.length != 0){
 				setTimeout(() => {
@@ -671,6 +708,77 @@
 	
 			}	
 
+		
+		
+		//ИСКУССТВО: КИНО, МУЗЫКА
+		
+			//музыка
+			//общий вопрос про музыку лично Папе
+			else if( message.includes("music") || message.includes("genre") || message.includes("genres")){
+				setTimeout(() => {
+
+					let answers = [
+						`Oh, talking about music. Papa Smurf thinks that he likes instrumental, blues and ${musicGenres[randomArrayNumber(musicGenres)]}`,
+						`I like blues. ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} and ${musicGenres[randomArrayNumber(musicGenres)]} are ${musicDescription[randomArrayNumber(musicDescription)]}. ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} is ${musicDescription[randomArrayNumber(musicDescription)]}`,
+					]
+							
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+							
+				}, 1300);
+			}
+				//разгоны про жанры
+			else if(musicMatch.length != 0){
+				setTimeout(() => {
+	
+					let answer = processTopics(musicMatch[0], musicDescription[randomArrayNumber(musicDescription)], musicQuestions[randomArrayNumber(musicQuestions)]);
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1300);
+			}
+			
+			//кино
+			//любимые фильмы папы
+			else if(youMatch.length != 0 && movieWordsMatch.length != 0){
+				setTimeout(() => {
+
+					let answers = [
+						`It's hard to name just one thing, but ${movieTitles[randomArrayNumber(movieTitles)]} comes to mind`,
+						`${discussingMovies(movieTitles[randomArrayNumber(movieTitles)], positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)])}`,
+						`My favorite movie is probably ${movieTitles[randomArrayNumber(movieTitles)]}, it's so ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
+					]
+							
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+							
+				}, 1300);
+			}
+			else if(youPossessiveWords.length != 0 && movieWordsMatch.length != 0){
+				setTimeout(() => {
+
+					let answer = "I like The Smurfs. What else did you expect, little Smurf?";	
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+							
+				}, 1300);
+			}
+			// просто упомянули кино
+			else if(movieWordsMatch.length != 0){
+				setTimeout(() => {
+
+					let answers = [
+						`I love cinéma! So about ${movieWordsMatch[0]}, I bet you have seen ${movieTitles[randomArrayNumber(movieTitles)]}? Isn't it ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
+						`I know a good movie! ${movieTitles[randomArrayNumber(movieTitles)]} is really ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
+						`I can recommend you ${movieTitles[randomArrayNumber(movieTitles)]}`,
+						`${discussingMovies(movieTitles[randomArrayNumber(movieTitles)], positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)])}`,
+						`${discussingMovies(movieTitles[randomArrayNumber(movieTitles)], positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)])}`,
+						`${discussingMovies(movieTitles[randomArrayNumber(movieTitles)], positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)])}`,
+					]
+							
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+							
+				}, 1300);
+			}
+
 		//ВОПРОСЫ
 
 		else if(questionsMatch.length != 0){
@@ -687,7 +795,8 @@
 				let answer = answers[randomArrayNumber(answers)];
 				chatbotSendMessage(toUpperCaseAnswer(answer))
 			}, 1200);
-		}					
+		}	
+
 
 		//ФОТОГРАФИИ И МОТИВАЦИОННЫЕ ЦИТАТЫ
 

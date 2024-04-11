@@ -93,8 +93,11 @@ h1 {
   align-items: center;
 }
 .media .rules .rules-img {
-  margin: 10px;
-  max-width: 100px;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  max-width: 90px;
   animation: userShake3 1.5s ease infinite;
   cursor: pointer;
 }
