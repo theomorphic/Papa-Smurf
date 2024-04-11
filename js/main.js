@@ -721,8 +721,11 @@
 				setTimeout(() => {
 
 					let answers = [
+						`Papa Smurf likes instrumental, of course, blues and ${musicGenres[randomArrayNumber(musicGenres)]}`,
 						`Oh, talking about music. Papa Smurf thinks that he likes instrumental, blues and ${musicGenres[randomArrayNumber(musicGenres)]}`,
+						`Well, it's instrumental, blues and maybe ${musicGenres[randomArrayNumber(musicGenres)]}`,
 						`I like blues. ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} and ${musicGenres[randomArrayNumber(musicGenres)]} are ${musicDescription[randomArrayNumber(musicDescription)]}. ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} is ${musicDescription[randomArrayNumber(musicDescription)]}`,
+						`Blues is number one. ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} and ${musicGenres[randomArrayNumber(musicGenres)]} are ${musicDescription[randomArrayNumber(musicDescription)]}. ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} is ${musicDescription[randomArrayNumber(musicDescription)]}`,
 					]
 							
 					let answer = answers[randomArrayNumber(answers)];
