@@ -140,8 +140,9 @@
 //Вступительное сообщение 
 	setTimeout(() => {
 	chatbotSendMessage(smalltalk[randomArrayNumber(smalltalk)]);
+	console.warn("Papa Smurf is monitoring the console. Don't be naughty!")
 
-	}, 2000);
+	}, 1500);
 
 //Добавление в HTML уже готовое сообщение от бота
 	function chatbotSendMessage(messageText){
@@ -923,8 +924,32 @@
 			}
 
 	}
+	//функция обработки сообщения пользователя и формирования ответа
 
+	function askingAuestions(){
+		setInterval(() => {
+			const answers = [
+				`${smalltalk[randomArrayNumber(smalltalk)]}`,
+				`${smalltalk[randomArrayNumber(smalltalk)]}`,
+				`${smalltalk[randomArrayNumber(smalltalk)]}`,
+				`${smalltalk[randomArrayNumber(smalltalk)]}`,
+				`${smalltalk[randomArrayNumber(smalltalk)]}`,
+				`${smalltalk[randomArrayNumber(smalltalk)]}`,
+				`${smalltalk[randomArrayNumber(smalltalk)]}`,
+				`Here my question. ${smalltalk[randomArrayNumber(smalltalk)]}`,
+				`Oh, I have a question! ${smalltalk[randomArrayNumber(smalltalk)]}`,
+				`Hey, I have one for you. ${smalltalk[randomArrayNumber(smalltalk)]}`,
 
+			]
+
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+			
+		console.log(randomInterval)
+		}, 60000);
+
+	} askingAuestions()
+	//функция автоматического задавания вопросов в интервале до 1.5 минуты
 
 
 
