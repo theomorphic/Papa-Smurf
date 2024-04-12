@@ -840,6 +840,19 @@
 							
 				}, 1300);
 			}
+			else if(message.includes("art")){
+				setTimeout(() => {
+
+					let answers = [
+					`Art is limitless. But personally I love movies and music`,
+					`What types of art do you like?`,
+					]
+					let answer = answers[randomArrayNumber(answers)];
+
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+							
+				}, 1300);
+			}
 			
 
 		//ВОПРОСЫ
