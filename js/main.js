@@ -379,9 +379,6 @@
 		const agreeMatch = agreeWords.filter(element => message.includes(element));
 		const disagreeMatch = disagreeWords.filter(element => message.includes(element));
 
-		//вопросы
-		const questionsMatch = generalQuestions.filter(element => message.includes(element));
-
 		//категории познаний
 		const waterMatch = waterWords.filter(element => message.includes(element));
 		const foodMatch = foodNames.filter(element => message.includes(element));
@@ -397,6 +394,10 @@
 		//фотографии и мотивационные цитаты
 		const pictureMatch = pictureWords.filter(element => message.includes(element));
 		const quoteMatch = quotesAsking.filter(element => message.includes(element));
+
+		//вопросы
+		const questionsMatch = generalQuestions.filter(element => message.includes(element));
+
 
 
 		//ОСКОРБЛЕНИЯ, СТАРОСТЬ,ГРУБОСТЬ
@@ -586,40 +587,6 @@
 				}, 1300);
 			}
 
-		//КОРОТКИЕ ОТВЕТЫ: СОГЛАСИЕ И ОТРИЦАНИЕ
-
-			//согласие и несогласие
-			else if(agreeMatch.length != 0){
-				setTimeout(() => {
-
-					let answers =[
-						`${agreeWords[randomArrayNumber(agreeWords)]}`,
-						`${agreeWords[randomArrayNumber(agreeWords)]}. ${toUpperCaseAnswer(noIdeaMessages[randomArrayNumber(noIdeaMessages)])}`,
-						`${agreeWords[randomArrayNumber(agreeWords)]}, but you sound like ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
-
-					]
-
-					let answer = answers[randomArrayNumber(answers)];
-					chatbotSendMessage(toUpperCaseAnswer(answer))
-				}, 1400);
-			}
-			//несогласие
-			else if(disagreeMatch.length != 0){
-				setTimeout(() => {
-
-					let answers =[
-						`${disagreeWords[randomArrayNumber(disagreeWords)]}`,
-						`${agreeWords[randomArrayNumber(agreeWords)]}`,
-						`${agreeWords[randomArrayNumber(agreeWords)]}. ${toUpperCaseAnswer(noIdeaMessages[randomArrayNumber(noIdeaMessages)])}`,
-						`${disagreeWords[randomArrayNumber(disagreeWords)]}. ${toUpperCaseAnswer(noIdeaMessages[randomArrayNumber(noIdeaMessages)])}`,
-						`You strike me as ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
-
-					]
-
-					let answer = answers[randomArrayNumber(answers)];
-					chatbotSendMessage(toUpperCaseAnswer(answer))
-				}, 1400);
-			}
 
 		//КАТЕГОРИИ ПОЗНАНИЙ
 
@@ -910,6 +877,41 @@
 				}, 1400);
 
 				
+			}
+
+			//КОРОТКИЕ ОТВЕТЫ: СОГЛАСИЕ И ОТРИЦАНИЕ
+
+			//согласие и несогласие
+			else if(agreeMatch.length != 0){
+				setTimeout(() => {
+
+					let answers =[
+						`${agreeWords[randomArrayNumber(agreeWords)]}`,
+						`${agreeWords[randomArrayNumber(agreeWords)]}. ${toUpperCaseAnswer(noIdeaMessages[randomArrayNumber(noIdeaMessages)])}`,
+						`${agreeWords[randomArrayNumber(agreeWords)]}, but you sound like ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
+
+					]
+
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);
+			}
+			//несогласие
+			else if(disagreeMatch.length != 0){
+				setTimeout(() => {
+
+					let answers =[
+						`${disagreeWords[randomArrayNumber(disagreeWords)]}`,
+						`${agreeWords[randomArrayNumber(agreeWords)]}`,
+						`${agreeWords[randomArrayNumber(agreeWords)]}. ${toUpperCaseAnswer(noIdeaMessages[randomArrayNumber(noIdeaMessages)])}`,
+						`${disagreeWords[randomArrayNumber(disagreeWords)]}. ${toUpperCaseAnswer(noIdeaMessages[randomArrayNumber(noIdeaMessages)])}`,
+						`You strike me as ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
+
+					]
+
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);
 			}
 
 		//АБСОЛЮТНОЕ НЕПОНИМАНИЕ
