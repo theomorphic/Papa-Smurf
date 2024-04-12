@@ -434,8 +434,14 @@ const quotes = [
 ]
 export{quotes}
 const quotesAsking = [
-	"quote",
-	"quotes",
+	"advice", "advices",
+	"tip", "tips",
+	"suggestion", "suggestions",
+	"quote", "quotes",
+	"hint", "hints",
+	"recommendation", "recommendations",
+	"guidance", "guidances",
+	"clue", "clues",
 	"motivation",
 	"depressiv",
 	"depression",
