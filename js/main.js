@@ -73,6 +73,9 @@
 	import { yarmanMessages as yarmanMessages } from "./files/yarman.js";
 	import { yarmanActivities as yarmanActivities } from "./files/yarman.js";
 	//реакция на Ярика
+	import { thomas as thomas } from "./files/thomas.js";
+	import { thomasMessages as thomasMessages } from "./files/thomas.js";
+	//реакция на Томми Лавандеру
 	import { youWords as youWords } from "./response.js";
 	//обращение напрямую к боту
 	import { youPossessiveWords as youPossessiveWords } from "./response.js";
@@ -374,6 +377,7 @@
 		const alexMatch = alex.filter(element => message.includes(element));
 		const mattMatch = matt.filter(element => message.includes(element));
 		const yarmanMatch = yarman.filter(element => message.includes(element));
+		const tommyMatch = thomas.filter(element => message.includes(element));
 
 		//короткие ответы: согласие и отрицание
 		const agreeMatch = agreeWords.filter(element => message.includes(element));
@@ -585,6 +589,13 @@
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 
 				}, 1300);
+			}
+			//заговорили про Томми
+			else if(tommyMatch.length != 0){
+				setTimeout(() => {
+					let answer = thomasMessages[randomArrayNumber(thomasMessages)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1500);
 			}
 
 
@@ -960,8 +971,7 @@
 			let answer = answers[randomArrayNumber(answers)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 			
-		console.log(randomInterval)
-		}, 60000);
+		}, 120000);
 
 	} askingAuestions()
 	//функция автоматического задавания вопросов в интервале до 1.5 минуты
