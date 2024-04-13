@@ -115,7 +115,7 @@ h1{
 			margin-bottom: 10px;
 			margin-left: 5px;
 			max-width: 90px;
-			animation: userShake3 1.5s ease infinite;
+			animation: userShake2 1.5s ease infinite;
 			cursor: pointer;
 		}
 	}
@@ -127,13 +127,9 @@ h1{
 		transform: rotate(1deg);
 	}
 }
-@keyframes userShake2 {
-	50%{
-		transform: rotate(-1deg);
-	}
-}
 
-@keyframes userShake3 {
+
+@keyframes userShake2 {
 	50%{
 		transform: scale(1) translate(0%, 2%);;
 	}

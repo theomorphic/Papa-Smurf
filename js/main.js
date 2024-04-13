@@ -76,6 +76,10 @@
 	import { thomas as thomas } from "./files/thomas.js";
 	import { thomasMessages as thomasMessages } from "./files/thomas.js";
 	//реакция на Томми Лавандеру
+	import { moose as moose } from "./files/moose.js";
+	import { mooseMessages as mooseMessages } from "./files/moose.js";
+	//реакция на Лося
+
 	import { youWords as youWords } from "./response.js";
 	//обращение напрямую к боту
 	import { youPossessiveWords as youPossessiveWords } from "./response.js";
@@ -378,6 +382,7 @@
 		const mattMatch = matt.filter(element => message.includes(element));
 		const yarmanMatch = yarman.filter(element => message.includes(element));
 		const tommyMatch = thomas.filter(element => message.includes(element));
+		const mooseMatch = moose.filter(element => message.includes(element));
 
 		//короткие ответы: согласие и отрицание
 		const agreeMatch = agreeWords.filter(element => message.includes(element));
@@ -542,10 +547,21 @@
 						`That Smurf. "${movieTitles[randomArrayNumber(movieTitles)]}" is his favorite movie, right?`,
 						`${toUpperCaseAnswer(alexMatch[0])}! ${unknownNamesMessages[randomArrayNumber(unknownNamesMessages)]}`,
 						`${toUpperCaseAnswer(alexMatch[0])}? ${musicQuestions[randomArrayNumber(musicQuestions)]}`,
+						`He likes westerns a lot. Also he's Latvian`,
 						
 					]
 
 					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1200);
+
+			}
+
+			//заговорили про Лося
+			else if(mooseMatch.length != 0){
+				setTimeout(() => {
+
+					let answer = mooseMessages[randomArrayNumber(mooseMessages)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1200);
 			}
