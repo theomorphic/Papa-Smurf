@@ -1,7 +1,4 @@
 
-
-
-
 const alex = [
 	"alex",
 	"lexa",

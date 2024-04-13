@@ -79,6 +79,12 @@
 	import { moose as moose } from "./files/moose.js";
 	import { mooseMessages as mooseMessages } from "./files/moose.js";
 	//реакция на Лося
+	import { julia as julia } from "./files/julia.js";
+	import { juliaMessages as juliaMessages } from "./files/julia.js";
+	//разговоры про Юлю
+	import { oleg as oleg } from "./files/oleg.js";
+	import { olegMessages as olegMessages } from "./files/oleg.js";
+	//заговорили про Олега
 
 	import { youWords as youWords } from "./response.js";
 	//обращение напрямую к боту
@@ -383,6 +389,8 @@
 		const yarmanMatch = yarman.filter(element => message.includes(element));
 		const tommyMatch = thomas.filter(element => message.includes(element));
 		const mooseMatch = moose.filter(element => message.includes(element));
+		const juliaMatch = julia.filter(element => message.includes(element));
+		const olegMatch = oleg.filter(element => message.includes(element));
 
 		//короткие ответы: согласие и отрицание
 		const agreeMatch = agreeWords.filter(element => message.includes(element));
@@ -562,6 +570,22 @@
 				setTimeout(() => {
 
 					let answer = mooseMessages[randomArrayNumber(mooseMessages)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1200);
+			}
+			//заговорили про Юлю
+			else if(juliaMatch.length != 0){
+				setTimeout(() => {
+
+					let answer = juliaMessages[randomArrayNumber(juliaMessages)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1200);
+			}
+			//заговорили про Олега
+			else if(olegMatch.length != 0){
+				setTimeout(() => {
+
+					let answer = olegMessages[randomArrayNumber(olegMessages)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1200);
 			}
