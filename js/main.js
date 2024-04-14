@@ -83,6 +83,9 @@
 	import { oleg as oleg } from "./files/oleg.js";
 	import { olegMessages as olegMessages } from "./files/oleg.js";
 	//заговорили про Олега
+	import { papaSmurf as papaSmurf } from "./files/papa.js";
+	import { papaSmurfMessages as papaSmurfMessages } from "./files/papa.js";
+	//назвали самого папу
 
 	import { youWords as youWords } from "./response.js";
 	//обращение напрямую к боту
@@ -389,6 +392,7 @@
 		const mooseMatch = moose.filter(element => message.includes(element));
 		const juliaMatch = julia.filter(element => message.includes(element));
 		const olegMatch = oleg.filter(element => message.includes(element));
+		const papaMatch = papaSmurf.filter(element => message.includes(element));
 
 		//короткие ответы: согласие и отрицание
 		const agreeMatch = agreeWords.filter(element => message.includes(element));
@@ -520,6 +524,23 @@
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1400);
 			}
+			//заговорили про смурфов
+			else if(message.includes("smurf") || message.includes("smurfs") ){
+				setTimeout(() => {
+
+					let answers =[
+						"Oh, how I love my dearest Smurfs! Our blue skin cures every human illness",
+						"Smurfs are little blue human-like creatures that live in a small mushroom-house village",
+						"It's not a secret but Smurfs come from Belgium",
+						"Our name is Schtroumpfs in French",
+						"Smurfs are three apples tall",
+						"Smurfs tend to be vegetarians!"
+					]
+
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1200);
+			}
 
 			//заговорили про Мишу
 			else if(mishaMatch.length != 0){
@@ -632,6 +653,13 @@
 			else if(tommyMatch.length != 0){
 				setTimeout(() => {
 					let answer = thomasMessages[randomArrayNumber(thomasMessages)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1500);
+			}
+
+			else if(papaMatch.length != 0){
+				setTimeout(() => {
+					let answer = papaSmurfMessages[randomArrayNumber(papaSmurfMessages)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1500);
 			}
@@ -906,6 +934,24 @@
 					
 				}, 1300);
 			}
+
+			//Who + you
+			else if(questionsMatch[0] == "who" && youMatch.length != 0){
+
+				setTimeout(() => {
+					let answers = [
+						"Oh, my name is Papa Smurf",
+						"Don't you know who you're writing to? Check the name tag, little Smurf",
+						"I'm Papa Smurf!",
+						"I'm Grand Schtroumpf but for you it's just Papa Smurf",
+						"I'm the greatest leader od Smurfs!"
+					]
+							
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+					
+				}, 1300);
+			}			
 			
 			//ПРОСТО WHO
 			else if(questionsMatch[0] == "who"){
@@ -1055,6 +1101,7 @@
 				}, 1200);
 			}
 		//ОСОБЫЕ УПОМИНАНИЯ
+			//Грампи
 			else if(message.includes("grumpy") || message.includes("grump") ){
 
 				setTimeout(() => {
@@ -1062,6 +1109,19 @@
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1400);
 
+				
+			}
+			//просто на ты
+			else if(message.includes("you")){
+				setTimeout(() => {
+					let answers =[
+						"Me?",
+						"Me what?",
+						"Yeah?"
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);
 				
 			}
 
@@ -1106,7 +1166,7 @@
 				setTimeout(() => {
 
 					const answers = [
-						`${binderPhrases[randomArrayNumber(binderPhrases)]} ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}, but ${toUpperCaseAnswer(noIdeaMessages[randomArrayNumber(noIdeaMessages)])}`,
+						`${binderPhrases[randomArrayNumber(binderPhrases)]} ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}, but ${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,

@@ -1776,9 +1776,6 @@ export{pictureMessages}
 //короткие реакции на слова о фотографиях
 
 
-
-
-
 const questions = [
 	"what",
 	"where",
