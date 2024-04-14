@@ -524,6 +524,13 @@
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1400);
 			}
+			//назвали самого Папу
+			else if(papaMatch.length != 0){
+				setTimeout(() => {
+					let answer = papaSmurfMessages[randomArrayNumber(papaSmurfMessages)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1500);
+			}			
 			//заговорили про смурфов
 			else if(message.includes("smurf") || message.includes("smurfs") ){
 				setTimeout(() => {
@@ -653,13 +660,6 @@
 			else if(tommyMatch.length != 0){
 				setTimeout(() => {
 					let answer = thomasMessages[randomArrayNumber(thomasMessages)];
-					chatbotSendMessage(toUpperCaseAnswer(answer))
-				}, 1500);
-			}
-
-			else if(papaMatch.length != 0){
-				setTimeout(() => {
-					let answer = papaSmurfMessages[randomArrayNumber(papaSmurfMessages)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1500);
 			}
