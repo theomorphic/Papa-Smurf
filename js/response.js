@@ -1791,19 +1791,3 @@ const questions = [
 	"how",
 ]
 export{questions}
-
-const answers = [
-	"yeah, what is it?",
-	"what it's not?",
-	"why not?",
-	"why wouldn't it?",
-	"whenever it happens",
-	"how? I don't know, how are you, little Smurf?",
-	"who isn't, right?",
-	"who know, little one",
-	"where is it leading to?",
-	"where is the answer to this one? I don't know, little Smurf",
-	"whose area of interest is this?",
-	"for whom the bell tolls, little Smurf",
-]
-export{answers}

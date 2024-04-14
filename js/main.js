@@ -19,8 +19,6 @@
 	import {noIdeaMessages as noIdeaMessages} from "./response.js";
 	//короткие реакции на полное непонимание темы
 	import { questions as generalQuestions } from "./response.js";
-	import { answers as generalAnswers } from "./response.js";
-	//короткие ответы на вопросы
 
 
 // ДЛИННЫЕ ПРЕДЛОЖЕНИЯ И ФРАЗЫ
@@ -873,24 +871,161 @@
 			}
 			
 
-		//ВОПРОСЫ
+		//ВОПРОСЫ	
 
-		else if(questionsMatch.length != 0){
-			setTimeout(() => {
+			//ПРОСТО WHAT
+			else if(questionsMatch[0] == "what"){
 
-				let answers = [
-					`${generalAnswers[randomArrayNumber(generalAnswers)]}`,
-					`${generalAnswers[randomArrayNumber(generalAnswers)]} ${conjunction[randomArrayNumber(conjunction)]} ${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
-					`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
-					`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]} ${conjunction[randomArrayNumber(conjunction)]} ${binderPhrases[randomArrayNumber(binderPhrases)]} ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+				setTimeout(() => {
+					let answers = [
+						"What?",
+						"So what?",
+						"Whatever",
+						"Yeah, what is it actually?"
+					]
+							
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+					
+				}, 1300);
+			}
+			
+			//ПРОСТО HOW
+			else if(questionsMatch[0] == "how"){
 
-				]
-				
-				let answer = answers[randomArrayNumber(answers)];
-				chatbotSendMessage(toUpperCaseAnswer(answer))
-			}, 1200);
-		}	
+				setTimeout(() => {
+					let answers = [
+						"How?",
+						"Somehow",
+						"Yeah, how?",
 
+					]
+							
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+					
+				}, 1300);
+			}
+			
+			//ПРОСТО WHO
+			else if(questionsMatch[0] == "who"){
+
+				setTimeout(() => {
+					let answers = [
+						"Someone",
+						"Somebody",
+						"Some Smurf",
+						"Who?",
+						"Who? You?",
+						"Whoever",
+						"Who who. What are you? A stupid owl?"
+					]
+							
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+					
+				}, 1300);
+			}
+			//ПРОСТО WHERE
+			else if(questionsMatch[0] == "where"){
+
+				setTimeout(() => {
+					let answers = [
+						"Somewhere",
+						"Nowhere",
+						"Right, where?",
+						"Where?",
+						"Wherever"
+					]
+							
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+					
+				}, 1300);
+			}
+			//ПРОСТО WHEN
+			else if(questionsMatch[0] == "when"){
+
+				setTimeout(() => {
+					let answers = [
+						"I'll tell you when",
+						"I don't know when",
+						"When? Yeah, when?",
+						"It takes some time to happen",
+						"Whenever",
+
+					]
+							
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+					
+				}, 1300);
+			}
+			//ПРОСТО WHY
+			else if(questionsMatch[0] == "why"){
+
+				setTimeout(() => {
+					let answers = [
+						"For many reasons",
+						"Why? But why not? I don't understand such questions",
+						"Because of many good reasons, my little Smurf",
+						"Whyever",
+					]
+							
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+					
+				}, 1300);
+			}	
+			//ПРОСТО WHICH
+			else if(questionsMatch[0] == "which"){
+
+				setTimeout(() => {
+					let answers = [
+						"Which one?",
+						"I don't know which. Why is it matter to you?",
+						"Which? That's a hell of a question",
+						"Whichever",
+					]
+							
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+					
+				}, 1300);
+			}	
+			//ПРОСТО WHOSE
+			else if(questionsMatch[0] == "whose"){
+
+				setTimeout(() => {
+					let answers = [
+						"Mine probably",
+						"Maybe mine",
+						"I don't know whose",
+						"Whose? Good question",
+						"Whosever",
+					]
+							
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+					
+				}, 1300);
+			}
+			//ПРОСТО WHOM
+			else if(questionsMatch[0] == "whom"){
+
+				setTimeout(() => {
+					let answers = [
+						"Whom?",
+						"Whomever",
+						"To me, I guess",
+						"To Gargamel",
+					]
+							
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+					
+				}, 1300);
+			}																			
 
 		//ФОТОГРАФИИ И МОТИВАЦИОННЫЕ ЦИТАТЫ
 
