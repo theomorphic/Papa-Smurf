@@ -915,7 +915,7 @@
 
 		//ВОПРОСЫ	
 			//спросить время (what + time)
-			else if(message.includes("what") || message.includes("time")){
+			else if(message.includes("what") && message.includes("time")){
 
 				setTimeout(() => {
 					let now = new Date();
@@ -929,23 +929,27 @@
 					let answer = answers[randomArrayNumber(answers)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1400);	
-			}			
+			}		
+		
 			//ПРОСТО WHAT
 			else if(questionsMatch[0] == "what"){
 
-				setTimeout(() => {
-					let answers = [
-						"What?",
-						"So what?",
-						"Whatever",
-						"Yeah, what is it actually?"
-					]
-							
-					let answer = answers[randomArrayNumber(answers)];
-					chatbotSendMessage(toUpperCaseAnswer(answer))
-					
-				}, 1300);
+					setTimeout(() => {
+						let answers = [
+							"What?",
+							"So what?",
+							"Whatever",
+							"Yeah, what is it actually?"
+						]
+								
+						let answer = answers[randomArrayNumber(answers)];
+						chatbotSendMessage(toUpperCaseAnswer(answer))
+						
+					}, 1300);
+				
 			}
+
+
 			//HOW + you, как дела и всё такое
 			else if(questionsMatch[0] == "how" && youMatch.length != 0){
 
