@@ -434,6 +434,7 @@ const quotes = [
 ]
 export{quotes}
 const quotesAsking = [
+	"joke", "jokes",
 	"advice", "advices",
 	"tip", "tips",
 	"suggestion", "suggestions",
@@ -554,7 +555,61 @@ const negativePersonalMessages = [
 	"I am secure in my own sense of self-worth and do not need approval from others."
 ]
 export{negativePersonalMessages}
+//ответы на личные оскорбления
 
+const weatherMessages = [
+	"It's smurfy weather today!",
+	"The sky is as blue as a smurf's hat.",
+	"The sun is shining brighter than Smurfette's smile.",
+	"The clouds are as fluffy as Baby Smurf's diaper.",
+	"This weather makes me feel as happy as a smurf with a freshly-baked smurfberry pie.",
+	"It's a perfect day to go smurfing around the village.",
+	"The breeze is as refreshing as a dip in the smurfberry river.",
+	"I feel as peaceful as when I'm tending to my smurfy garden.",
+	"The rain is as gentle as a smurf's hug.",
+	"The snow makes everything look like a winter wonderland in Smurf Village.",
+	"The thunder makes the ground shake like when Gargamel tries to mess with us.",
+	"The lightning is as bright as Brainy Smurf's ideas (or so he thinks).",
+	"I love how the weather changes like the colors of Painter Smurf's palette.",
+	"The mist is as mysterious as the secrets of the lost village.",
+	"I feel as cozy as when I nestle in my smurfy bed during a storm.",
+	"The fog makes everything look like a smurfy dream.",
+	"The rainbow is as magical as Papa Smurf's wisdom.",
+	"The wind whispers secrets to my ears, just like the forest does.",
+	"I feel as lively as when we celebrate Smurf Day!",
+	"The weather makes me want to smurf a song for joy.",
+	"Each drop of rain is like a little smurf teardrop from the sky.",
+	"The frost covers everything like a blanket of smurfly snow.",
+	"The heat warms my smurfy heart like the love of my smurfy family.",
+	"I feel as free as when I fly on the back of a stork.",
+	"The weather is as unpredictable as Jokey Smurf's pranks.",
+	"These clouds remind me of Smurfette's cotton candy creations.",
+	"The sunsets in the sky are like paintings by Harmony Smurf.",
+	"The rainbows appear like magical bridges to the world beyond.",
+	"The weather is as enchanting as Papa Smurf's spells at the annual smurf festival.",
+	"I feel as creative as when I paint the mushrooms in the moonlight.",
+	"The weather changes faster than Clumsy Smurf trips over his own feet.",
+	"The moon shines bright in the sky, guiding us like a wise old smurf.",
+	"The weather is as lovely as Sassette Smurf's laughter.",
+	"The stars twinkle above us like the eyes of the ancient smurfs watching over our village.",
+	"I feel as peaceful as when I meditate in my smurfy garden.",
+	"The weather transforms the forest into a magical realm of wonders.",
+	"The snowflakes fall gently like kisses from the heavens.",
+	"The sunsets paint the sky with colors that even Vanity Smurf would envy.",
+	"I feel as adventurous as when we explore the hidden caves of the mountain.",
+	"The weather is as powerful as Hefty Smurf's muscles.",
+	"Each gust of wind carries laughter and joy through the trees.",
+	"The rain washes away worries like Handy Smurf repairs broken things.",
+	"The weather fills me with serenity like when I read ancient smurf scrolls.",
+	"I feel as majestic as when I stand atop the highest tree in the forest.",
+	"The weather is as magical as Papa Smurf's beard (or so I like to think).",
+	"The thunder makes the earth rumble like when we celebrate Smurfmas.",
+	"The lightning lights up the sky like Brainy Smurf's lantern at night.",
+	"I feel as connected to nature as when we dance with the forest sprites.",
+	"The weather soothes my soul like the sweet song of the smurfy birds.",
+	"The mist envelops the forest like a smurfy hug from a friend."
+]
+export{weatherMessages}
 
 // СЛОВА ДЛЯ КОНСТРУИРОВАНИЯ РАЗБОРНЫХ ПРЕДЛОЖЕНИЙ
 const conjunction = [
@@ -1633,6 +1688,12 @@ const meStateWords = [
 export{meStateWords}
 //личные местоимения с глаголом быть
 
+const nominativeMeWords = [
+	"i",
+	"im",
+	"iam",
+]
+export {nominativeMeWords}
 
 // РАБОТА С ФОТОГРАФИЯМИ
 const pictureWords = [

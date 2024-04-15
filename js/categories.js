@@ -1,6 +1,7 @@
 //КАТЕГОРИИ РАЗНЫХ ПОНЯТИЙ
 
 const foodNames = [
+	"cupcake", "cupcakes",
 	"berry", "berries",
 	"smurfberries", "smurfberry",
 	"sarsaparilla",
@@ -1287,7 +1288,7 @@ const loveWords = [
 	"intense", "passionate", "soulmate", "compassionate", "euphoria", "yearning", "longing", "rose", "beauty","hold",
 	"affectionate", "whisper", "giggle", "delight", "future", "trusting", "happiness", "kissing", "allure", "forever", "spark",
 	"connection", "intertwine", "softness", "intimate", "gaze", "cherished", "wish", "yearn", "pleasure", "glimpse", "rainbow",
-	"stars", "moon", "sky", "waves", "forever", "comfort", "date", "promise", "princess", "marvel", "heartfelt", "date",
+	"stars", "moon", "waves", "forever", "comfort", "date", "promise", "princess", "marvel", "heartfelt", "date",
 	"cherish", "cute", "destined", "flame", "hero", "amazing", "comfort", "devoted", "sparkle", "sunshine", "poem",
 	"song", "treasure", "dance", "eternity", "fairy", "god", "opportunity", "intense", "hugging", "special", "passionate",
 	"kissable", "scent", "moonlight", "starlight", "compromise", "openness", "gentle", "breathtaking", "serenity", "soulful",

@@ -32,7 +32,8 @@
 	//длинные цитаты-наставления
 	import { negativePersonalMessages as negativePersonalMessages } from "./response.js";
 	//реакция на личные оскорбления
-
+	import { weatherMessages as weatherMessages } from "./response.js";
+	//мнения о погоде
 
 // СЛОВА ДЛЯ КОНСТРУИРОВАНИЯ РАЗБОРНЫХ ПРЕДЛОЖЕНИЙ
 	import {conjunction as conjunction} from "./response.js";
@@ -91,6 +92,9 @@
 	//обращение напрямую к боту
 	import { youPossessiveWords as youPossessiveWords } from "./response.js";
 	//притяжательный падеж к боту
+	import { nominativeMeWords as nominativeMeWords } from "./response.js";
+	//имнительный падеж для первого лица
+
 	import { meActionWords as meActionWords } from "./response.js";
 	//первое лицо для бота к глаголу
 	import { meStateWords as meStateWords } from "./response.js";
@@ -394,10 +398,6 @@
 		const olegMatch = oleg.filter(element => message.includes(element));
 		const papaMatch = papaSmurf.filter(element => message.includes(element));
 
-		//короткие ответы: согласие и отрицание
-		const agreeMatch = agreeWords.filter(element => message.includes(element));
-		const disagreeMatch = disagreeWords.filter(element => message.includes(element));
-
 		//категории познаний
 		const waterMatch = waterWords.filter(element => message.includes(element));
 		const foodMatch = foodNames.filter(element => message.includes(element));
@@ -416,8 +416,11 @@
 
 		//вопросы
 		const questionsMatch = generalQuestions.filter(element => message.includes(element));
-
-
+		
+		//короткие ответы: согласие и отрицание, обращение на ты
+		const agreeMatch = agreeWords.filter(element => message.includes(element));
+		const disagreeMatch = disagreeWords.filter(element => message.includes(element));
+		const nominativeIMatch = nominativeMeWords.filter(element => message.includes(element));
 
 		//ОСКОРБЛЕНИЯ, СТАРОСТЬ,ГРУБОСТЬ
 
@@ -897,10 +900,36 @@
 							
 				}, 1300);
 			}
+
+			//погода
+			else if(message.includes("weather")){
+
+				setTimeout(() => {
+					let answer = weatherMessages[randomArrayNumber(weatherMessages)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);
+
+				
+			}				
 			
 
 		//ВОПРОСЫ	
+			//спросить время (what + time)
+			else if(message.includes("what") || message.includes("time")){
 
+				setTimeout(() => {
+					let now = new Date();
+					let hour = now.getHours();
+					let minute = now.getMinutes();
+					let answers =[
+						`It's ${hour}:${minute}`,
+						`${hour}:${minute}`,
+						`Now it's ${hour}:${minute}`,
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);	
+			}			
 			//ПРОСТО WHAT
 			else if(questionsMatch[0] == "what"){
 
@@ -1117,6 +1146,24 @@
 				}, 1200);
 			}
 		//ОСОБЫЕ УПОМИНАНИЯ
+			//thank you
+			else if(message.includes("thank") || message.includes("thanks") || message.includes("thanking")){
+
+				setTimeout(() => {
+					let answers =[
+						"You're welcome",
+						"No problem",
+						"No biggie, little Smurf",
+						"No big deal",
+						"You are always welcome",
+						"My pleasure",
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);
+
+				
+			}		
 			//Грампи
 			else if(message.includes("grumpy") || message.includes("grump") ){
 
@@ -1128,7 +1175,7 @@
 				
 			}
 			//просто на ты
-			else if(message.includes("you")){
+			else if(message.includes("you") ||message.includes("dude") ||message.includes("man")){
 				setTimeout(() => {
 					let answers =[
 						"Me?",
@@ -1139,9 +1186,79 @@
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1400);
 				
-			}
+			}		
 
-		//КОРОТКИЕ ОТВЕТЫ: СОГЛАСИЕ И ОТРИЦАНИЕ
+			//упомнянули porn
+			else if(message.includes("porn") || message.includes("porno") || message.includes("pornography")){
+				setTimeout(() => {
+					let answers =[
+						"It's so obscene!",
+						"Eww, I don't watch that",
+						"This is not the topic we would like to discuss",
+						"I don't appreciate you mentioning that word",
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);
+				
+			}	
+			//nothing
+			else if(message.includes("nothing")){
+
+				setTimeout(() => {
+					let answers =[
+						"Nothing it is",
+						agreeWords[randomArrayNumber(agreeWords)],
+						"Nothing is fine",
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);	
+			}
+		
+			//time
+			else if(message.includes("time")){
+
+				setTimeout(() => {
+					let answers =[
+						"Time is priceless",
+						"Don't waste your time",
+						"You have musch time, don't you?",
+						"I'm so old, time goes slow"
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);	
+			}
+			//легкие колкости
+			else if(message.includes("shut") || message.includes("stupid")){
+
+				setTimeout(() => {
+					let answers =[
+						"Be nice, little Smurf",
+						"This is not a good word",
+						"It's not polite to say",
+						"Don't talk to elders like that"
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);	
+			}
+			//скучно
+			else if(message.includes("boring") || message.includes("bored") || message.includes("boredom")){
+
+				setTimeout(() => {
+					let answers =[
+						"Boredom comes out of you",
+						"Don't be boring",
+						"If it's boring, say something better",
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);	
+			}											
+
+		//КОРОТКИЕ ОТВЕТЫ: СОГЛАСИЕ И ОТРИЦАНИЕ, обращение на ты
 
 			//согласие и несогласие
 			else if(agreeMatch.length != 0){
@@ -1167,6 +1284,21 @@
 						`${agreeWords[randomArrayNumber(agreeWords)]}. ${toUpperCaseAnswer(noIdeaMessages[randomArrayNumber(noIdeaMessages)])}`,
 						`You strike me as ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
 
+					]
+
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);
+			}
+			//обращение на ты от лица пользователя
+			else if(nominativeIMatch.length != 0){
+				setTimeout(() => {
+
+					let answers =[
+						"You are",
+						"Yes you are",
+						"Aren't you?",
+						`${agreeWords[randomArrayNumber(agreeWords)]} you are`						
 					]
 
 					let answer = answers[randomArrayNumber(answers)];
@@ -1211,7 +1343,7 @@
 				`${smalltalk[randomArrayNumber(smalltalk)]}`,
 				`${smalltalk[randomArrayNumber(smalltalk)]}`,
 				`${smalltalk[randomArrayNumber(smalltalk)]}`,
-				`Here my question. ${smalltalk[randomArrayNumber(smalltalk)]}`,
+				`Here's my question. ${smalltalk[randomArrayNumber(smalltalk)]}`,
 				`Oh, I have a question! ${smalltalk[randomArrayNumber(smalltalk)]}`,
 				`Hey, I have one for you. ${smalltalk[randomArrayNumber(smalltalk)]}`,
 
