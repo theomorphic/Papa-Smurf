@@ -47,6 +47,7 @@ const negativeMessages =[
 ]
 export{negativeMessages}
 const negativeWords =[
+	"hole",
 	"musa",
 	"fuck",
 	"fucking",
@@ -81,7 +82,6 @@ const negativeWords =[
 	"dumber",
 	"dumbest",
 	"dumbass",
-	"fool",
 	"dull",
 	"nyb",
 	"noob",
@@ -119,7 +119,6 @@ const negativeWords =[
 	"buggering",
 	"buggers",
 	"buggered",
-	"git",
 	"hell",
 	"goddamn",
 	"minger",
@@ -144,7 +143,6 @@ const negativeWords =[
 	"dwarf",
 	"midget",
 	"gnome",
-	"crazy",
 	"лох"
 
 ]

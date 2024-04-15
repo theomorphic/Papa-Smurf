@@ -1284,7 +1284,7 @@ const loveWords = [
 	"adoring", 
 	"heartfelt",
 	"gleam", 
-	"obliging", "kindhearted", "crush", "tasting", "warmth", "voracity", "sweetheart", "name", "amour", "pure",
+	"obliging", "kindhearted", "crush", "tasting", "warmth", "voracity", "sweetheart", "amour", "pure",
 	"intense", "passionate", "soulmate", "compassionate", "euphoria", "yearning", "longing", "rose", "beauty","hold",
 	"affectionate", "whisper", "giggle", "delight", "future", "trusting", "happiness", "kissing", "allure", "forever", "spark",
 	"connection", "intertwine", "softness", "intimate", "gaze", "cherished", "wish", "yearn", "pleasure", "glimpse", "rainbow",
@@ -1427,7 +1427,6 @@ const loveWords = [
     "warmth",
     "voracity",
     "sweetheart",
-    "name",
     "amour",
     "pure",
     "intense"
@@ -2275,3 +2274,14 @@ const langNamesQuestions = [
 	"Why do some languages borrow words from other languages?"
 ]
 export{langNamesQuestions}
+
+const rudeWords = [
+	"shut",
+	"stupid",
+	"fool",
+	"dirty",
+	"git",
+	"crazy",
+]
+
+export{rudeWords}

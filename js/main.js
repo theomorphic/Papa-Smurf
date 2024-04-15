@@ -19,6 +19,8 @@
 	import {noIdeaMessages as noIdeaMessages} from "./response.js";
 	//короткие реакции на полное непонимание темы
 	import { questions as generalQuestions } from "./response.js";
+	import { rudeWords as rudeWords } from "./categories.js";
+	//общие грубости
 
 
 // ДЛИННЫЕ ПРЕДЛОЖЕНИЯ И ФРАЗЫ
@@ -382,6 +384,7 @@
 		//оскорбления, старость,грубость	
 		const oldMatch = beingOldForms.filter(element => message.includes(element));
 		const negativeMatch = negativeWords.filter(element => message.includes(element));
+		const rudeMatch = rudeWords.filter(element => message.includes(element));
 		
 		//приветствие и прощание
 		const greetingsMatch = greetingsWords.filter(element => message.includes(element));
@@ -533,7 +536,23 @@
 					let answer = papaSmurfMessages[randomArrayNumber(papaSmurfMessages)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1500);
-			}			
+			}	
+			
+			//спросить имя папы
+			else if(message.includes("name") && youPossessiveMatch != 0){
+				setTimeout(() => {
+						let answers = [
+							"My name is Papa Smurf",
+							"It's Papa Smurf",
+							"Papa Smurf",
+							"The name is Papa Smurf"
+						]
+						let answer = answers[randomArrayNumber(answers)];
+						chatbotSendMessage(toUpperCaseAnswer(answer))	
+	
+				}, 1400);	
+			}	
+
 			//заговорили про смурфов
 			else if(message.includes("smurf") || message.includes("smurfs") ){
 				setTimeout(() => {
@@ -912,9 +931,25 @@
 				
 			}				
 			
+			else if(youMatch.length != 0){
+				setTimeout(() => {
+
+					let answers = [
+					"Me? It's hard to explain",
+					"Myself? I didn't think about that",
+					"Why did you asked me this?",
+					"Maybe when I was young",
+					"Me? What about you?",
+					]
+					let answer = answers[randomArrayNumber(answers)];
+
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+							
+				}, 1300);
+			}
 
 		//ВОПРОСЫ	
-			//спросить время (what + time)
+			// //спросить время (what + time)
 			else if(message.includes("what") && message.includes("time")){
 
 				setTimeout(() => {
@@ -929,9 +964,9 @@
 					let answer = answers[randomArrayNumber(answers)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1400);	
-			}		
+			}			
 		
-			//ПРОСТО WHAT
+			// //ПРОСТО WHAT
 			else if(questionsMatch[0] == "what"){
 
 					setTimeout(() => {
@@ -1227,7 +1262,7 @@
 					let answers =[
 						"Time is priceless",
 						"Don't waste your time",
-						"You have musch time, don't you?",
+						"You have much time, don't you?",
 						"I'm so old, time goes slow"
 					]
 					let answer = answers[randomArrayNumber(answers)];
@@ -1235,7 +1270,7 @@
 				}, 1400);	
 			}
 			//легкие колкости
-			else if(message.includes("shut") || message.includes("stupid")){
+			else if(rudeMatch.length != 0){
 
 				setTimeout(() => {
 					let answers =[
@@ -1256,6 +1291,19 @@
 						"Boredom comes out of you",
 						"Don't be boring",
 						"If it's boring, say something better",
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);	
+			}			
+			//просят задать вопрос
+			else if(message.includes("question") || message.includes("questions")){
+
+				setTimeout(() => {
+					let answers =[
+						"What's that?",
+						"Question?",
+					
 					]
 					let answer = answers[randomArrayNumber(answers)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
