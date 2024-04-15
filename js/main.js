@@ -917,6 +917,22 @@
 					
 				}, 1300);
 			}
+			//HOW + you, как дела и всё такое
+			else if(questionsMatch[0] == "how" && youMatch.length != 0){
+
+				setTimeout(() => {
+					let answers = [
+						"I'm doing fine, little Smurf!",
+						"Right now I'm doing great, little friend!",
+						"Oh, fine. How are you?",
+
+					]
+							
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+					
+				}, 1300);
+			}
 			
 			//ПРОСТО HOW
 			else if(questionsMatch[0] == "how"){
@@ -1133,7 +1149,6 @@
 
 					let answers =[
 						`${agreeWords[randomArrayNumber(agreeWords)]}`,
-						`${agreeWords[randomArrayNumber(agreeWords)]}. ${toUpperCaseAnswer(noIdeaMessages[randomArrayNumber(noIdeaMessages)])}`,
 						`${agreeWords[randomArrayNumber(agreeWords)]}, but you sound like ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
 
 					]
@@ -1150,7 +1165,6 @@
 						`${disagreeWords[randomArrayNumber(disagreeWords)]}`,
 						`${agreeWords[randomArrayNumber(agreeWords)]}`,
 						`${agreeWords[randomArrayNumber(agreeWords)]}. ${toUpperCaseAnswer(noIdeaMessages[randomArrayNumber(noIdeaMessages)])}`,
-						`${disagreeWords[randomArrayNumber(disagreeWords)]}. ${toUpperCaseAnswer(noIdeaMessages[randomArrayNumber(noIdeaMessages)])}`,
 						`You strike me as ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
 
 					]
