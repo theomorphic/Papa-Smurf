@@ -2283,6 +2283,7 @@ const rudeWords = [
 	"dirty",
 	"git",
 	"crazy",
+	"screw","screws","screwing"
 ]
 
 export{rudeWords}
