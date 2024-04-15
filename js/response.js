@@ -432,7 +432,6 @@ const quotes = [
 ]
 export{quotes}
 const quotesAsking = [
-	"joke", "jokes",
 	"advice", "advices",
 	"tip", "tips",
 	"suggestion", "suggestions",

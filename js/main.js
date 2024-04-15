@@ -36,6 +36,9 @@
 	//реакция на личные оскорбления
 	import { weatherMessages as weatherMessages } from "./response.js";
 	//мнения о погоде
+	import { jokes as jokes } from "./categories.js";
+	import { jokesWords as jokesWords } from "./categories.js";
+	//шутки
 
 // СЛОВА ДЛЯ КОНСТРУИРОВАНИЯ РАЗБОРНЫХ ПРЕДЛОЖЕНИЙ
 	import {conjunction as conjunction} from "./response.js";
@@ -408,6 +411,7 @@
 		const loveMatch = loveWords.filter(element => message.includes(element));
 		const natureMatch = natureWords.filter(element => message.includes(element));
 		const langMatch = langNames.filter(element => message.includes(element));
+		const jokesMatch = jokesWords.filter(element => message.includes(element));
 
 		//искусство: кино, музыка
 		const musicMatch = musicGenres.filter(element => message.includes(element));
@@ -800,6 +804,7 @@
 							
 				}, 1300);
 			}
+			//просто про музыку
 			else if(message.includes("music")){
 				setTimeout(() => {
 
@@ -825,6 +830,7 @@
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1300);
 			}
+			//музыкальные жанры
 			else if(message.includes("music") && (message.includes("genre") || message.includes("genres"))){
 				setTimeout(() => {
 	
@@ -854,6 +860,7 @@
 							
 				}, 1300);
 			}
+			//главное кино папы
 			else if(youPossessiveMatch.length != 0 && movieWordsMatch.length != 0){
 				setTimeout(() => {
 
@@ -862,6 +869,7 @@
 							
 				}, 1300);
 			}
+			//жанры кино
 			else if(movieWordsMatch.length != 0 && (message.includes("genre") || message.includes("genres"))){
 				setTimeout(() => {
 
@@ -893,6 +901,7 @@
 							
 				}, 1300);
 			}
+			//жанры в целом
 			else if(message.includes("genre") || message.includes("genres")){
 				setTimeout(() => {
 
@@ -906,6 +915,7 @@
 							
 				}, 1300);
 			}
+			//искусство, art
 			else if(message.includes("art")){
 				setTimeout(() => {
 
@@ -920,7 +930,7 @@
 				}, 1300);
 			}
 
-			//погода
+		//ПОГОДА
 			else if(message.includes("weather")){
 
 				setTimeout(() => {
@@ -929,27 +939,43 @@
 				}, 1400);
 
 				
-			}				
-			
-			else if(youMatch.length != 0){
+			}
+		//ШУТКИ	
+			//папу назвали шуткой
+			else if(jokesMatch.length != 0 && youMatch.length !=0 && message.includes("are")){
 				setTimeout(() => {
 
 					let answers = [
-					"Me? It's hard to explain",
-					"Myself? I didn't think about that",
-					"Why did you asked me this?",
-					"Maybe when I was young",
-					"Me? What about you?",
+						"I'm not a joke",
+						"Joke? You are joke"
+
 					]
 					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+							
+				}, 1300);
+			}						
+			//попросили шутки
+			else if(jokesMatch.length != 0){
+				setTimeout(() => {
 
+					let answers = [
+						`${jokes[randomArrayNumber(jokes)]}`,
+						`${jokes[randomArrayNumber(jokes)]}`,
+						`${jokes[randomArrayNumber(jokes)]}`,
+						`${jokes[randomArrayNumber(jokes)]}`,
+						`I will make you laugh. ${jokes[randomArrayNumber(jokes)]}`,
+						` Here's one. ${jokes[randomArrayNumber(jokes)]}`,
+						`Oh, I know a joke! ${jokes[randomArrayNumber(jokes)]}`,
+					]
+					let answer = answers[randomArrayNumber(answers)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 							
 				}, 1300);
 			}
 
 		//ВОПРОСЫ	
-			// //спросить время (what + time)
+			//спросить время (what + time)
 			else if(message.includes("what") && message.includes("time")){
 
 				setTimeout(() => {
@@ -964,7 +990,22 @@
 					let answer = answers[randomArrayNumber(answers)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1400);	
-			}			
+			}
+			//спросить новости и дела
+			else if(message.includes("what") || message.includes("whats") && message.includes("new") || message.includes("news") || message.includes("up")){
+
+				setTimeout(() => {
+					let answers =[
+						"It's all good!",
+						"As usual, little Smurf",
+						"I'm great. How are you?",
+						"Everything is great in the Smurf Village",
+						`Everything is ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);	
+			}						
 		
 			// //ПРОСТО WHAT
 			else if(questionsMatch[0] == "what"){
@@ -1210,9 +1251,21 @@
 					let answer = `Grumpy? My rude brother. He lives <a href='https://theomorphic.github.io/Grumpy' target='_blank'>right here</a>`;
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1400);
-
-				
 			}
+			//KILLSHARK
+			else if(message.includes("killshark")){
+
+				setTimeout(() => {
+					let answers =[
+						"Killshark is the greatest game company",
+						`Killshark is ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
+						"<a href='https://killshark.com' target='_blank'>Here's the website</a>",
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);	
+			}
+
 			//просто на ты
 			else if(message.includes("you") ||message.includes("dude") ||message.includes("man")){
 				setTimeout(() => {
@@ -1308,7 +1361,20 @@
 					let answer = answers[randomArrayNumber(answers)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1400);	
-			}											
+			}	
+			//достаточно
+			else if(message.includes("enough")){
+
+				setTimeout(() => {
+					let answers =[
+						"Enough is enough",
+						"Yeah, it's enough",
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);	
+			}
+						
 
 		//КОРОТКИЕ ОТВЕТЫ: СОГЛАСИЕ И ОТРИЦАНИЕ, обращение на ты
 

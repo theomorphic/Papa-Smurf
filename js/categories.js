@@ -2285,3 +2285,38 @@ const rudeWords = [
 ]
 
 export{rudeWords}
+
+const jokes = [
+	"Why did the tomato turn red? Because it saw the salad dressing!",
+	"I told my wife she should embrace her mistakes. She gave me a hug.",
+	"I'm reading a book on the history of glue. I just can't seem to put it down!",
+	"Why couldn't the bicycle stand up by itself? It was two tired!",
+	"Parallel lines have so much in common. It's a shame they'll never meet.",
+	"I would tell you a joke about pizza, but it's a little cheesy.",
+	"Why don't scientists trust atoms? Because they make up everything!",
+	"What did one wall say to the other wall? I'll meet you at the corner!",
+	"I used to play piano by ear, but now I use my hands.",
+	"Did you hear about the mathematician who's afraid of negative numbers? He'll stop at nothing to avoid them!",
+	"Why do chicken coops only have two doors? Because if they had four, they'd be chicken sedans!",
+	"I'm on a seafood diet. I see food and if it's from sea I eat it! It's Dylan MacDonald's joke!",
+	"Why do bees have sticky hair? Because they use honeycombs!",
+	"I was addicted to the hokey pokey, but I turned myself around.",
+	"What do you call an alligator in a vest? An investigator!",
+	"You can't run through a campground. You can only ran, because it's past tents!",
+	"What's brown and sticky? A stick!",
+	"Why can't you trust an atom? Because they make up everything!",
+	"What do you call a fish wearing a crown? A kingfish!"
+]
+export {jokes}
+const jokesWords = [
+	"joke", "jokes",
+	"fun", "funny",
+	"gag", "gags",
+	"prank", "pranks",
+	"laugh", "laughs", "laughing",
+	"farce",
+	"anecdote", "anecdotes",
+	"cheer", "cheers", "cheering",
+	"story","stories",
+]
+export{jokesWords}
