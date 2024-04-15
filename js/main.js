@@ -1354,7 +1354,7 @@
 
 				setTimeout(() => {
 					let answers =[
-						"What's that?",
+						"What question?",
 						"Question?",
 					
 					]
