@@ -247,6 +247,7 @@ const foodNames = [
 	"radicchio", "radicchios",
 	"endive", "endives",
 	"chives", "chive",
+	"beef",
 ]
 export{foodNames}
 //еда
