@@ -141,9 +141,10 @@ const negativeWords =[
 	"wanker",
 	"prat",
 	"dwarf",
-	"midget",
+	"midget", "midgets",
 	"gnome",
-	"лох"
+	"лох",
+	"moron", "morons"
 
 ]
 export{negativeWords}
