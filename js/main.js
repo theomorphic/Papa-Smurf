@@ -1374,8 +1374,32 @@
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1400);	
 			}
-						
+			//рецепты
+			else if(message.includes("recipe") || message.includes("recipes")  ){
 
+				setTimeout(() => {
+					let answers =[
+						"Recipe? No, I just like food",
+						"I don't know any recipes",
+						"No recipes from me",
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);	
+			}						
+			//тусовка
+			else if(message.includes("party") || message.includes("parties")  ){
+
+				setTimeout(() => {
+					let answers =[
+						"I party hard",
+						"Last time I was parting so hard, Gargamel was shocked",
+						"Do you want to party with me?",
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);	
+			}	
 		//КОРОТКИЕ ОТВЕТЫ: СОГЛАСИЕ И ОТРИЦАНИЕ, обращение на ты
 
 			//согласие и несогласие
