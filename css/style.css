@@ -112,15 +112,15 @@ h1 {
     transform: scale(1) translate(0%, 2%);
   }
 }
+a {
+  color: #fff;
+  text-decoration: underline;
+}
+
 .chat-container {
   height: 50vh;
   overflow: auto;
   border: 1px solid #c7c7c7;
-}
-
-a {
-  color: #fff;
-  text-decoration: underline;
 }
 
 .input-group {
@@ -138,20 +138,13 @@ a {
   border-radius: 3px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2666666667);
 }
-.input-group .btn {
+.input-group #sendBtn {
   color: #fff;
   background-color: #e4312a;
   border: none;
   font-size: 17px;
   margin-left: 10px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2666666667);
-}
-.input-group .btn:hover {
-  background-color: #e4312a;
-  color: #fff;
-}
-
-#sendBtn {
   margin-left: 10px;
 }
 

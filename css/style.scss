@@ -135,16 +135,17 @@ h1{
 	}
 }
 
+//на случай ссылок в сообщении
+a{
+	color: #fff;
+	text-decoration: underline;
+}
+
 .chat-container{
 	height: 50vh;
 	overflow: auto;
 	border: 1px solid #c7c7c7;
 
-}
-
-a{
-	color: #fff;
-	text-decoration: underline;
 }
 
 .input-group{
@@ -164,28 +165,19 @@ a{
 
 	}
 
-	.btn{
+	#sendBtn{
 		color: #fff;
 		background-color: $smurfRed;
 		border: none;
 		font-size: 17px;
 		margin-left: 10px;
 		box-shadow: 0 0 5px 0 #00000044;
+		margin-left: 10px;
+
 
 	
 	}
 	
-	.btn:hover{
-		background-color: $smurfRed;
-		color: #fff;
-	
-	}
-}
-
-#sendBtn{
-	margin-left: 10px;
-
-
 }
 
 .botMessage{
@@ -238,11 +230,7 @@ a{
 		flex-direction: column;
 		justify-content: start;	
 		padding: 5px;
-	}
-
-
-
-	
+	}	
 }
 
 @media(max-width:990px){
