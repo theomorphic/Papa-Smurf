@@ -429,6 +429,10 @@
 		const disagreeMatch = disagreeWords.filter(element => message.includes(element));
 		const nominativeIMatch = nominativeMeWords.filter(element => message.includes(element));
 
+		//отдельные слова
+		const positiveDescriptionWordsMatch = positiveDescriptionWords.filter(element => message.includes(element));
+		const descriptionWordsMatch = descriptionWords.filter(element => message.includes(element));
+
 		//ОСКОРБЛЕНИЯ, СТАРОСТЬ,ГРУБОСТЬ
 
 			//лично оскорбили
@@ -1400,6 +1404,33 @@
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1400);	
 			}	
+		//ОТДЕЛЬНЫЕ СЛОВА
+			//позитивные слова
+			else if(positiveDescriptionWordsMatch.length != 0){
+
+				setTimeout(() => {
+					let answers =[
+						`${toUpperCaseAnswer(positiveDescriptionWordsMatch[0])}!`,
+						`${toUpperCaseAnswer(positiveDescriptionWordsMatch[0])}?`,
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);	
+			}	
+			//описательные слова
+			else if(descriptionWordsMatch.length != 0){
+
+				setTimeout(() => {
+					let answers =[
+						`${toUpperCaseAnswer(descriptionWordsMatch[0])}!`,
+						`${toUpperCaseAnswer(descriptionWordsMatch[0])}?`,
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);	
+			}	
+
+
 		//КОРОТКИЕ ОТВЕТЫ: СОГЛАСИЕ И ОТРИЦАНИЕ, обращение на ты
 
 			//согласие и несогласие
